@@ -17,5 +17,9 @@ ______ is a full stack web application inspired by Instagram.
 <h2>Design Docs</h2>
 
 * [API Endpoints](https://github.com/mvodkin/insta_clone/blob/master/docs/api-endpoints.md)
+* [Component Heirarchy](https://github.com/mvodkin/insta_clone/blob/master/docs/component-heirarchy.md)
+* [Redux Structure](https://github.com/mvodkin/insta_clone/blob/master/docs/redux-structure.md)
+* [Sample State](https://github.com/mvodkin/insta_clone/blob/master/docs/sample-state.md)
+* [Schema](https://github.com/mvodkin/insta_clone/blob/master/docs/schema.md) 
 
 <h2>Implementation Timeline</h2>
