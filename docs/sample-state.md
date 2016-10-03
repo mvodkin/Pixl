@@ -19,6 +19,7 @@
       }
       img_url: "http//:www.imageurl.com/image.jpg",
       description: "Hi, this is Maru the doge!",
+      like: true,
       likes_count: 45,345,
       comments: {
         1: {
