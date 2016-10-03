@@ -16,7 +16,7 @@ ______ is a full stack web application inspired by Instagram.
 
 <h2>Design Docs</h2>
 
-* [Wireframs]()
+* [Wireframes]()
 * [API Endpoints](https://github.com/mvodkin/insta_clone/blob/master/docs/api-endpoints.md)
 * [Component Heirarchy](https://github.com/mvodkin/insta_clone/blob/master/docs/component-heirarchy.md)
 * [Redux Structure](https://github.com/mvodkin/insta_clone/blob/master/docs/redux-structure.md)
@@ -24,3 +24,45 @@ ______ is a full stack web application inspired by Instagram.
 * [Schema](https://github.com/mvodkin/insta_clone/blob/master/docs/schema.md)
 
 <h2>Implementation Timeline</h2>
+- [ ] Phase I - W1D1 - W1D2
+  - [ ] User model and back end Auth
+  - [ ] Front end Auth
+  - [ ] Seed users
+  - [ ] `AuthForm`
+  - [ ] CSS for `AuthForm`
+  - [ ] Deploy to Heroku
+
+- [ ] Phase II - W1D3 - W1D4
+  - [ ] `PostIndexContainer`
+  - [ ] `PostItemContainer`
+  - [ ] Seed posts
+
+- [ ] Phase III - W1D5
+  - [ ] CSS for `PostsIndexContainer`, navigation header & `PostItemContainer`
+
+- [ ] Phase IV - W2D1
+  - [ ] `CommentForm`
+  - [ ] `Comments`
+  - [ ] `Like Button`
+  - [ ] `Likes`
+  - [ ] CSS for above
+
+- [ ] Phase V - W2D2
+  - [ ] `UserProfileContainer`
+  - [ ] `ProfileIndexContainer`
+  - [ ] CSS for for `UserProfileContainer`
+
+- [ ] Phase VI - W2D3-W2D4
+  - [ ] If I am on schedule at this point I will implement the drawing form
+  - [ ] Else, I will implement a post form to upload photographs
+
+- [ ] Phase VII - W2D5
+  - [ ] Implement infinite scroll
+  - [ ] Implement Search
+
+<h3>Bonus Features</h3>
+
+- [ ] Hashtags are automatically added when written into the body of description or comment and become clickable links to a search by that hashtag
+- [ ] Notifications. A list of recent, likes, follows and comments
+- [ ] Privacy. Users can choose to make their profiles private (only accessible to followers)
+- [ ] Direct Message.

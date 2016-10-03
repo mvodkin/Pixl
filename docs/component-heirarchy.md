@@ -1,4 +1,4 @@
-<h1>Component Heirarchy</h1>
+<h1>Component Hierarchy</h1>
 
 <h4>AuthFormContainer</h4>
 * AuthForm
@@ -22,15 +22,21 @@
 
 <h4>PostFormContainer</h4>
   * PostForm
+  * **Alternatively** DrawForm
+    * Canvas
 
 <h4>ProfileContainer</h4>
+* UserProfile
+  * ProfileImage
+  * ProfileDescription
+  * FollowButton
 * UserPostsIndex
   * PostItem
     * Image
     * Description
     * Comments
     * Likes
-  * FollowButton
+
 
 <h1>Routes</h4>
 
