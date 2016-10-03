@@ -63,6 +63,7 @@ ______ is a full stack web application inspired by Instagram.
 <h3>Bonus Features</h3>
 
 - [ ] Hashtags are automatically added when written into the body of description or comment and become clickable links to a search by that hashtag
+- [ ] Optionally view post index and search results as thumbnails
 - [ ] Notifications. A list of recent, likes, follows and comments
 - [ ] Privacy. Users can choose to make their profiles private (only accessible to followers)
 - [ ] Direct Message.

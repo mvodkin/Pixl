@@ -19,7 +19,7 @@
   * `GET /api/session`
 
 <h3>Posts</h3>
-  * `GET /api/posts`
+  * `GET /api/posts/:params`
     * Fetches all posts from users followed by the current user. When viewing a profile it fetches all posts from that user.
   * `POST /api/posts`
   * `PATCH /api/posts`
@@ -36,3 +36,9 @@
 <h3>Follows</h3>
   * `POST /api/follows`
   * `DELETE /api/follows`
+
+<h3>Tagging</h3>
+  * `POST /api/taggings`
+
+<h3>Tags</h3>
+  * `GET /api/tags`

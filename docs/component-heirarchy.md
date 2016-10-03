@@ -6,9 +6,9 @@
 <h4>HeaderContainer</h4>
 * SearchInput
   * SearchResults
-* Home Button
-* Profile Button
-* Post Button
+* HomeButton
+* ProfileButton
+* PostButton
 
 <h4>PostsIndexContainer</h4>
 * PostsIndex
