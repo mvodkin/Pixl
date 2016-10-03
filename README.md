@@ -16,7 +16,7 @@ Pixl (working title) is a full stack web application inspired by Instagram. It a
 
 <h2>Design Docs</h2>
 
-* [Wireframes]()
+* [Wireframes](https://github.com/mvodkin/insta_clone/tree/master/docs/wireframes)
 * [API Endpoints](https://github.com/mvodkin/insta_clone/blob/master/docs/api-endpoints.md)
 * [Component Heirarchy](https://github.com/mvodkin/insta_clone/blob/master/docs/component-heirarchy.md)
 * [Redux Structure](https://github.com/mvodkin/insta_clone/blob/master/docs/redux-structure.md)

@@ -5,7 +5,8 @@
 <h3>Session API Actions</h3>
 * `SignUp`
   1. Invoked from `signUpForm` `onSubmit`
-  2. 
+  2. `POST api/users`
+  3. `receiveCurrentUser` is API success callback
 * `SignIn`
 * `SignOut`
 * `fetchCurrentUser`
