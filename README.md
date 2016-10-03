@@ -1,4 +1,4 @@
-<h1>README</h1>
+<h1>Pixl</h1>
 
 <h2>Minimum Viable Product</h2>
 
