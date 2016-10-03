@@ -2,7 +2,7 @@
 
 <h2>Minimum Viable Product</h2>
 
-______ is a full stack web application inspired by Instagram.
+Pixl (working title) is a full stack web application inspired by Instagram. It allows users to post like and comment on pictures.
 
 - [ ] Hosting on Heroku
 - [ ] Login creation, sign-in, sign-out and guest sign-in
