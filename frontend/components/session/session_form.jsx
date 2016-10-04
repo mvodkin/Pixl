@@ -10,19 +10,17 @@ class SessionForm extends React.Component {
     };
   }
 
-  signupForm() {
-    return (
-      
-    )
-  }
+  // signupForm() {
+  //   return (
+  //
+  //   )
+  // }
 
   render() {
 
 
     return(
-      <form>
-        <label>Username or email</label>
-      </form>
+
     );
   }
 }
