@@ -5,10 +5,10 @@ Column         | Data Type
 id             |Integer
 username       |String
 profile_desc   |String
-profile_pic_id |String 
+profile_pic_id |Integer
 email          |String
-session Token  |String
-password digest|String
+session_token  |String
+password_digest|String
 
 
 <h3>Posts</h3>
