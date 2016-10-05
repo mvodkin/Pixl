@@ -1,7 +1,10 @@
 class Api::SessionController < ApplicationController
 
   def create
-    @user = User.find_by_credentials(user_params[:username], user_params[:password])
+    @user = User.find_by_credentials(
+        session_params[:username],
+        session_params[:password]
+      )
     if @user
       login(@user)
       render "api/users/show.json.jbuilder"
