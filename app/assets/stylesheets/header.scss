@@ -1,0 +1,65 @@
+.header {
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.header-nav {
+  font-family: 'Press Start 2P', cursive;
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.logo-nav {
+  font-size: 24px;
+  align-self: center;
+  margin-left: 22px;
+  margin-right: 89px;
+}
+
+.logo-nav:hover {
+  color: #FF0078;
+}
+
+ul.nav-list {
+
+}
+
+.nav-list-container {
+  float: right;
+}
+
+.nav-list > li > img {
+  height: 40px;
+  width: 69px;
+}
+
+.nav-list > li {
+  float: left;
+}
+
+.search > input {
+  width: 135px;
+  margin: 0 auto;
+  border: 1px solid #dbdbdb;
+  padding: 6px 8px;
+  font-size: 12px;
+  background-color: #fafafa;
+  // align-self: center;
+}
+
+.search > input:focus {
+  background-color: black;
+  color: #FF0078;
+  border: 1px solid #FF0078;
+}
+
+.search {
+  align-self: center;
+}
+
+.nav-icon {
+
+}

@@ -32,12 +32,14 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     const errorList = []
-    if (this.props.errors) {
+    // debugger
+    if (this.props.errors.length) {
       this.props.errors.forEach((error, index) => {
         errorList.push(<li key={index} className="error">{error}</li>);
       })
       return (
         <ul className="error-list">
+          <li>ERROR!</li>
           {errorList}
         </ul>
       )
@@ -46,9 +48,20 @@ class SessionForm extends React.Component {
 
   navLink() {
     if (this.props.formType === 'login') {
-      return <Link to="/signup">Sign up</Link>
+      return (
+        <div className="switch-session-form">
+          <p className="session-form-link-text">
+            Don't have an account? <Link className="session-form-link" to="/signup">Sign up</Link>
+          </p>
+        </div>)
     } else {
-      return <Link to="/login">Log in</Link>
+      return (
+        <div className="switch-session-form">
+          <p className="session-form-link-text">
+            Have an account? <Link className="session-form-link" to="/login">Log in</Link>
+          </p>
+        </div>
+      )
     }
   }
 
@@ -61,43 +74,61 @@ class SessionForm extends React.Component {
   emailField() {
     if (this.props.formType === 'signup') {
       return (
-        <label>Email:
+        <div className="login-input-container">
           <input type="text"
             value={this.state.email}
             onChange={this.update("email")}
-            className="login-input"></input>
-        </label>
+            className="login-input"
+            placeholder="Email"></input>
+        </div>
       )
     }
   }
 
+  formName() {
+    return (this.props.formType === "login") ? "Log in" : "Sign up";
+  }
+
+  // submitName() {
+  //   return (this.props.formType === "login") ? "Sign up" : "Log in";
+  // }
+
   render() {
     return(
-      <div className="login-form-container">
-				<form onSubmit={this.handleSubmit} className="login-form-box">
-					Please {this.props.formType} or {this.navLink()}
-					{ this.renderErrors() }
-					<div className="login-form">
-						<label> Username:
-							<input type="text"
-								value={this.state.username}
-								onChange={this.update("username")}
-								className="login-input" />
-						</label>
+      <div className="login-background">
+        <div className="login-form-container">
+          <div className="logo">
+            Pixl
+          </div>
+  				<form onSubmit={this.handleSubmit} className="login-form-box">
 
-            {this.emailField()}
+  					{ this.renderErrors() }
+  					<div className="login-form">
 
-						<label> Password:
-							<input type="password"
-								value={this.state.password}
-								onChange={this.update("password")}
-								className="login-input" />
-						</label>
+              <div className="login-input-container">
+    						<input type="text"
+    							value={this.state.username}
+    							onChange={this.update("username")}
+    							className="login-input"
+                  placeholder="Username"/>
+              </div>
 
-						<input type="submit" value="Log In" />
-					</div>
-				</form>
-			</div>
+              {this.emailField()}
+
+              <div className="login-input-container">
+    						<input type="password"
+    							value={this.state.password}
+    							onChange={this.update("password")}
+    							className="login-input"
+                  placeholder="Password"/>
+              </div>
+
+              <input className="submit-login" type="submit" value={this.formName()} />
+  					</div>
+  				</form>
+          {this.navLink()}
+  			</div>
+      </div>
     )
   };
 
