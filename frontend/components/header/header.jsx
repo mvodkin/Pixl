@@ -9,24 +9,24 @@ const Header = ({logout}) => {
   }
 
   return (
-    <header className="header">
-      <div className="header-nav">
-        <Link to="/" className="logo-nav" data-text="Pixl">Pixl</Link>
 
-        <form className="search">
-          <input className="search-bar" type="text" placeholder="Search" />
-        </form>
+    <div className="header-nav">
+      <Link to="/" className="logo-nav" data-text="Pixl">Pixl</Link>
 
-        <div className="nav-list-container">
-          <ul className="nav-list">
-            <li><Link to="/" data-text="new post">new post</Link></li>
-            <li><Link to="/" data-text="notifications">notifications</Link></li>
-            <li><Link to="/" data-text="profile">profile</Link></li>
-            <li><div onClick={handleLogout}>log out</div></li>
-          </ul>
-        </div>
+      <form className="search">
+        <input className="search-bar" type="text" placeholder="Search" />
+      </form>
+
+      <div className="nav-list-container">
+        <ul className="nav-list">
+          <li><Link to="/" data-text="new post">new post</Link></li>
+          <li><Link to="/" data-text="notifications">notifications</Link></li>
+          <li><Link to="/" data-text="profile">profile</Link></li>
+          <li><div onClick={handleLogout}>log out</div></li>
+        </ul>
       </div>
-    </header>
+    </div>
+
   );
 };
 export default Header;

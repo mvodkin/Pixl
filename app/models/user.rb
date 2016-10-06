@@ -24,17 +24,35 @@ class User < ActiveRecord::Base
   validates :password, length: { in: 6..20, allow_nil: true }
   validates :profile_desc, length: { maximum: 200, allow_nil: true }
 
+  has_many :posts
+
+  has_many :following_you,
+    class_name: "Follow",
+    primary_key: :id,
+    foreign_key: :followee_id
+
+  has_many :you_following,
+    class_name: "Follow",
+    primary_key: :id,
+    foreign_key: :follower_id
+
+  has_many :followers,
+    through: :following_you,
+    source: :follower
+
+  has_many :followees,
+    through: :you_following,
+    source: :followee
+
+  has_many :followed_posts,
+    through: :followees,
+    source: :posts
+
+    
+  #_________Authentication________
+
   def self.generate_session_token
     SecureRandom.base64(16)
-  end
-
-  def ensure_session_token
-    self.session_token ||= User.generate_session_token
-  end
-
-  def password=(password)
-    @password = password
-    self.password_digest = BCrypt::Password.create(password)
   end
 
   def is_password?(password)
@@ -53,5 +71,15 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  private
+
+  def ensure_session_token
+    self.session_token ||= User.generate_session_token
+  end
+
+  def password=(password)
+    @password = password
+    self.password_digest = BCrypt::Password.create(password)
+  end
 
 end
