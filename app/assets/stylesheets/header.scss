@@ -1,5 +1,6 @@
 .header {
   border-bottom: 1px solid #dbdbdb;
+  // background: black;
 }
 
 .header-nav {
@@ -17,11 +18,13 @@
   align-self: center;
   margin-left: 22px;
   margin-right: 89px;
+  text-shadow: 2px 2px grey;
+  // color: white;
 }
 
-.logo-nav:hover {
-  color: #FF0078;
-}
+// .logo-nav:hover {
+//   color: #FF0078;
+// }
 
 ul.nav-list {
 
@@ -47,13 +50,16 @@ ul.nav-list {
   padding: 6px 8px;
   font-size: 12px;
   background-color: #fafafa;
+  // box-shadow: 2px 2px grey;
   // align-self: center;
 }
 
 .search > input:focus {
   background-color: black;
   color: #FF0078;
-  border: 1px solid #FF0078;
+  // border: 1px solid #FF0078;
+  box-shadow: 2px 2px #FF0078;
+  border: 0;
 }
 
 .search {

@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const Header = () => (
   <header className="header">
     <div className="header-nav">
-      <Link to="/" className="logo-nav">Pixl</Link>
+      <Link to="/" className="logo-nav" data-text="Pixl">Pixl</Link>
 
       <form className="search">
         <input className="search-bar" type="text" placeholder="Search" />

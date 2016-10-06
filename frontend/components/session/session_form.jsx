@@ -97,7 +97,7 @@ class SessionForm extends React.Component {
     return(
       <div className="login-background">
         <div className="login-form-container">
-          <div className="logo">
+          <div className="logo" data-text="Pixl">
             Pixl
           </div>
   				<form onSubmit={this.handleSubmit} className="login-form-box">
@@ -123,7 +123,10 @@ class SessionForm extends React.Component {
                   placeholder="Password"/>
               </div>
 
-              <input className="submit-login" type="submit" value={this.formName()} />
+              <input className="submit-login"
+                type="submit"
+                data-text={this.formName()}
+                value={this.formName()}></input>
   					</div>
   				</form>
           {this.navLink()}

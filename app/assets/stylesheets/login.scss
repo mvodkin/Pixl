@@ -1,5 +1,5 @@
 .login-background {
-  background: #fafafa;
+  background: black;//#fafafa;
   height: 100%;
   min-width: 100%;
   position: fixed;
@@ -10,7 +10,7 @@
   width: 400px;;
   height: auto;
   margin: 0 auto;
-  border: 2px solid #e3e4e5;
+  border: 1px solid black;//#e3e4e5;
   padding: 40px 45px;
   text-align: center;
   position: relative;
@@ -18,6 +18,7 @@
   font-family: 'Press Start 2P', cursive;
   z-index: 9999;
   background: white;
+  box-shadow: 10px 10px #FF0078;
 }
 
 .login-form-box {
@@ -34,6 +35,16 @@
   width: 348px;
 }
 
+.login-input:focus {
+  background-color: black;
+  border: 1px solid black;
+  color: #FF0078;
+}
+
+::placeholder:focus {
+  color: #FF0078;
+}
+
 .login-input-container {
   padding-bottom: 5px;
 }
@@ -44,16 +55,22 @@
   padding-bottom: 30px;
   font-family: 'Press Start 2P', cursive;
   text-transform: uppercase;
+  text-shadow: 2px 2px grey;//#FF0078;
 }
 
 .submit-login {
   padding: 10px 10px;
-  width: inherit;
+  // width: inherit;
   background-color: black;
   color: white;
   width: 350px;
   cursor: pointer;
   font-size: 12px;
+
+}
+
+.submit-login:hover {
+  color: #FF0078;
 }
 
 .switch-session-form {
