@@ -7,16 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 ActiveRecord::Base.transaction do
-  guest = User.create(
+  guest = User.new(
     username: "Super_User",
     email: "super_user@gmail.com",
     password: "password"
   );
-  max = User.create(
+  max = User.new(
     username: "max",
     email: "max@gmail.com",
     password: "password"
   )
+  guest.save
+  max.create
 
   first = Post.create(
     image_url: "https://www.petdrugsonline.co.uk/images/page-headers/cats-master-header",
@@ -24,5 +26,5 @@ ActiveRecord::Base.transaction do
     user_id: 2,
   )
 
-  follow = Follow.create(follower_id: 1, followee_id: 2) 
+  follow = Follow.create(follower_id: 1, followee_id: 2)
 end
