@@ -1,5 +1,6 @@
 import { LOGIN, LOGOUT, SIGNUP, receiveCurrentUser, receiveErrors } from "../actions/session_actions";
 import { login, signup, logout } from "../util/session_api_util";
+import { hashHistory } from "react-router"
 
 
 export default ({getState, dispatch}) => next => action => {
@@ -12,7 +13,10 @@ export default ({getState, dispatch}) => next => action => {
     case SIGNUP:
       signup(action.user, successCallback, errorCallback);
     case LOGOUT:
-      logout(() => next(action));
+      logout(() => {
+        // hashHistory.push("login");
+        next(action);
+      });
     default:
       return next(action);
   }

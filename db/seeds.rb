@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+ActiveRecord::Base.transaction do
+  guest = User.create(
+    username: "Super_User",
+    email: "super_user@gmail.com",
+    password: "password"
+  );
+end

@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
   }
 
   update(key) {
@@ -33,13 +34,12 @@ class SessionForm extends React.Component {
   renderErrors() {
     const errorList = []
     // debugger
-    if (this.props.errors.length) {
+    if (this.props.errors) {
       this.props.errors.forEach((error, index) => {
         errorList.push(<li key={index} className="error">{error}</li>);
       })
       return (
         <ul className="error-list">
-          <li>ERROR!</li>
           {errorList}
         </ul>
       )
@@ -71,6 +71,12 @@ class SessionForm extends React.Component {
     this.props.processForm({user});
   }
 
+  guestLogin(e) {
+    e.preventDefault();
+    const user = {username: "Super_User", email: "", password: "password"};
+    this.props.processForm({user});
+  }
+
   emailField() {
     if (this.props.formType === 'signup') {
       return (
@@ -88,10 +94,6 @@ class SessionForm extends React.Component {
   formName() {
     return (this.props.formType === "login") ? "Log in" : "Sign up";
   }
-
-  // submitName() {
-  //   return (this.props.formType === "login") ? "Sign up" : "Log in";
-  // }
 
   render() {
     return(
@@ -127,8 +129,17 @@ class SessionForm extends React.Component {
                 type="submit"
                 data-text={this.formName()}
                 value={this.formName()}></input>
+
+
   					</div>
   				</form>
+          <form onSubmit={this.guestLogin}>
+            <input className="submit-login"
+              type="submit"
+              data-text="Test Access"
+              value="Test access"
+              ></input>
+          </form>
           {this.navLink()}
   			</div>
       </div>

@@ -66,11 +66,14 @@
   width: 350px;
   cursor: pointer;
   font-size: 12px;
+  align-self: center;
+  margin-bottom: 5px;
 
 }
 
 .submit-login:hover {
   color: #FF0078;
+  // box-shadow: 2px 2px #FF0078;
 }
 
 .switch-session-form {

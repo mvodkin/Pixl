@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "./header/header";
+import HeaderContainer from "./header/header_container";
 
 const App = () => {
   return(
-    <Header />
+    <HeaderContainer />
   );
 };
 

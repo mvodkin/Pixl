@@ -11,7 +11,7 @@ const Root = ({store}) => {
   const _ensureLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (!currentUser) {
-      replace('/login');
+      replace('login');
     }
   };
 
@@ -22,8 +22,8 @@ const Root = ({store}) => {
         <Route path="/" component={App} onEnter={_ensureLoggedIn}>
 
         </Route>
-        <Route path="/login" component={SessionFormContainer} />
-        <Route path="/signup" component={SessionFormContainer} />
+        <Route path="login" component={SessionFormContainer} />
+        <Route path="signup" component={SessionFormContainer} />
       </Router>
     </Provider>
   );
