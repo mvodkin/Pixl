@@ -148,6 +148,13 @@
 .logo-nav:hover {
   @include textGlitch("logo", 30, black, white, red, blue, 450, 115);
   text-shadow: 2px 2px #FF0078;
+  cursor: pointer;
+}
+
+.nav-list > li:hover {
+  @include textGlitch("nav", 30, black, white, red, blue, 450, 115);
+  text-shadow: 1px 1px #FF0078;
+  cursor: pointer;
 }
 
 .logo {

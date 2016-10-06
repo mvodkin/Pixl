@@ -5,7 +5,7 @@
 
 .header-nav {
   font-family: 'Press Start 2P', cursive;
-  width: 70%;
+  width: 85%;
   margin: 0 auto;
   padding: 20px 0;
   display: flex;
@@ -27,20 +27,24 @@
 // }
 
 ul.nav-list {
-  align-self: center;
+  // align-self: center;
 }
 
 .nav-list-container {
   float: right;
+  font-size: 12px;
 }
 
-.nav-list > li > img {
-  height: 40px;
-  width: 69px;
-}
+// .nav-list > li > img {
+//   height: 40px;
+//   width: 69px;
+// }
 
 .nav-list > li {
   float: left;
+  padding: 10px 10px;
+  align-self: center;
+
 
 }
 

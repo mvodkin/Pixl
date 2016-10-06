@@ -19,10 +19,10 @@ const Header = ({logout}) => {
 
         <div className="nav-list-container">
           <ul className="nav-list">
-
-            <li className="nav-icon logout-button">
-              <div onClick={handleLogout}>Log out</div>
-            </li>
+            <li><Link to="/" data-text="new post">new post</Link></li>
+            <li><Link to="/" data-text="notifications">notifications</Link></li>
+            <li><Link to="/" data-text="profile">profile</Link></li>
+            <li><div onClick={handleLogout}>log out</div></li>
           </ul>
         </div>
       </div>
