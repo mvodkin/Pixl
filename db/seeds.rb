@@ -18,7 +18,7 @@ ActiveRecord::Base.transaction do
     password: "password"
   )
   guest.save
-  max.create
+  max.save
 
   first = Post.create(
     image_url: "https://www.petdrugsonline.co.uk/images/page-headers/cats-master-header",
