@@ -25,18 +25,32 @@ main.feed {
 }
 
 .post-user {
-  padding: 25px 15px;
+  padding: 15px 25px;
   border-bottom: 1px solid #efefef;
+  font-weight: bold;
 }
 
-.comment {
-  padding: 25px 15px;
+.image-info {
+  padding: 15px 25px;
   border-top: 1px solid #efefef;
   color: #4b4d4f;
 }
 
 .comment-user {
   font-weight: bold;
+}
+
+// .comment {
+//   display: inline;
+// }
+
+.comment-body {
+  display: inline;
+}
+
+.comments {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #efefef;
 }
 
 .image_container {
@@ -46,4 +60,17 @@ main.feed {
 img.post-image {
   width: 100%;
   height: 100%;
+}
+
+.likes li {
+  display: inline;
+  font-weight: bold;
+}
+
+.likes inline {
+  font-weight: lighter;
+}
+
+.likes {
+  padding-bottom: 10px;
 }

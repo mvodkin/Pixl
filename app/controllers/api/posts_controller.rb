@@ -12,15 +12,9 @@ class Api::PostsController < ApplicationController
   end
 
   def index
-    @posts = current_user.followed_posts
+    @posts = current_user.followed_posts.includes(:comments).includes(:likes)
     render :index
   end
-
-  # def destroy
-  # end
-  #
-  # def updated
-  # end
 
   private
 

@@ -11,6 +11,8 @@
 
 class Follow < ActiveRecord::Base
 
+  validates_uniqueness_of :follower_id, scope: :followee_id
+
   belongs_to :follower,
     class_name: "User",
     primary_key: :id,

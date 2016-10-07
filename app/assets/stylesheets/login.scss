@@ -1,3 +1,5 @@
+@import "glitch.scss";
+
 .login-background {
   background: black;//#fafafa;
   height: 100%;
@@ -55,12 +57,15 @@
   padding-bottom: 30px;
   font-family: 'Press Start 2P', cursive;
   text-transform: uppercase;
-  text-shadow: 2px 2px grey;//#FF0078;
+  text-shadow: 2px 2px grey;
+}
+
+.logo {
+  @include textGlitch("submit-login", 17, black, white, #FF0078, blue, 450, 115);
 }
 
 .submit-login {
   padding: 10px 10px;
-  // width: inherit;
   background-color: black;
   color: white;
   width: 350px;
@@ -73,7 +78,6 @@
 
 .submit-login:hover {
   color: #FF0078;
-  // box-shadow: 2px 2px #FF0078;
 }
 
 .switch-session-form {

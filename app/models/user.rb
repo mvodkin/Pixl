@@ -48,6 +48,10 @@ class User < ActiveRecord::Base
     through: :followees,
     source: :posts
 
+  def num_followers
+    Follow.where(followee_id: self.id).count(:id)
+  end
+
 
   #_________Authentication________
 

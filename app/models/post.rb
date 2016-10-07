@@ -20,4 +20,27 @@ class Post < ActiveRecord::Base
     through: :user,
     source: :followers
 
+  has_many :likes,
+    class_name: "Like",
+    primary_key: :id,
+    foreign_key: :liked_post_id
+
+  has_many :likers,
+    through: :likes,
+    source: :liker
+
+  def num_likes
+    Like.where(liked_post_id: self.id).count(:id)
+  end
+
+  has_many :comments,
+    class_name: "Comment",
+    primary_key: :id,
+    foreign_key: :post_id
+
+  def num_comments
+    Comment.where(post_id: self.id).count(:id)
+  end
+
+
 end

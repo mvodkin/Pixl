@@ -137,26 +137,3 @@
     animation: #{$name}-anim-2 3s infinite linear alternate-reverse;
   }
 }
-
-// .submit-login:hover {
-//   // color: #FF0078;
-//   // font-size: 36px;
-//   @include textGlitch("login", 30, white, black, red, blue, 450, 115);
-// }
-
-
-.logo-nav:hover {
-  @include textGlitch("logo", 30, black, white, red, blue, 450, 115);
-  text-shadow: 2px 2px #FF0078;
-  cursor: pointer;
-}
-
-.nav-list > li:hover {
-  @include textGlitch("nav", 30, black, white, red, blue, 450, 115);
-  text-shadow: 1px 1px #FF0078;
-  cursor: pointer;
-}
-
-.logo {
-  @include textGlitch("submit-login", 17, black, white, #FF0078, blue, 450, 115);
-}
