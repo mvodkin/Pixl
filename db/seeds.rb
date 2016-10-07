@@ -21,7 +21,7 @@ ActiveRecord::Base.transaction do
   max.save
 
   first = Post.create(
-    image_url: "https://www.petdrugsonline.co.uk/images/page-headers/cats-master-header",
+    img_url: "https://www.petdrugsonline.co.uk/images/page-headers/cats-master-header",
     description: "first_post",
     user_id: 2,
   )
