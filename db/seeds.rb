@@ -11,7 +11,7 @@ ActiveRecord::Base.transaction do
     username: "Super_User",
     email: "super_user@gmail.com",
     password: "password"
-  );
+  )
   max = User.new(
     username: "max",
     email: "max@gmail.com",

@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
     through: :followees,
     source: :posts
 
-    
+
   #_________Authentication________
 
   def self.generate_session_token
@@ -70,8 +70,6 @@ class User < ActiveRecord::Base
     self.save
     self.session_token
   end
-
-  private
 
   def ensure_session_token
     self.session_token ||= User.generate_session_token

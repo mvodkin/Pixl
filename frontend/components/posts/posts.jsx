@@ -25,9 +25,11 @@ export default class Posts extends React.Component {
 
   render() {
     return (
-      <div className="posts">
-        <ul>{this.allPosts()}</ul>
-      </div>
+      <main className="feed">
+        <div className="posts">
+          <ul>{this.allPosts()}</ul>
+        </div>
+      </main>
     );
   };
 
