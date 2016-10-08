@@ -2,6 +2,7 @@ import React from "react";
 import Likes from "./likes";
 import Comments from "./comments"
 import CommentForm from "./comment_form";
+import LikeButton from "./like_button";
 
 
 const Post = ({props}) => {
@@ -14,8 +15,16 @@ const Post = ({props}) => {
         <Likes post={post} />
       );
     }
-  }
-  // debugger
+  };
+
+  const likeButtonProps = {
+    currentUser: props.currentUser,
+    likePost: props.likePost,
+    unlikePost: props.unlikePost,
+    likers: post.likers,
+    post_id: post.id
+  };
+
   return (
     <li>
       <article className="post">
@@ -26,6 +35,7 @@ const Post = ({props}) => {
           {renderLikes()}
           <Comments post={post} />
         </section>
+        <LikeButton {...likeButtonProps} />
         <CommentForm props={props} />
       </article>
     </li>

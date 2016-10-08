@@ -20,6 +20,9 @@ export default class Posts extends React.Component {
 
         let props = {
           createComment: this.props.createComment,
+          likePost: this.props.likePost,
+          unlikePost: this.props.unlikePost,
+          currentUser,
           post
         }
 

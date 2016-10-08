@@ -3,6 +3,8 @@ export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const CREATE_POST = "CREATE_POST";
 export const CREATE_COMMENT = "CREATE_COMMENT";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
+export const LIKE_POST = "LIKE_POST";
+export const UNLIKE_POST = "UNLIKE_POST";
 
 export const requestPosts = () => ({
   type: REQUEST_POSTS
@@ -21,4 +23,14 @@ export const createComment = (comment) => ({
 export const receiveComment = (comment) => ({
   type: RECEIVE_COMMENT,
   comment
+})
+
+export const likePost = (post_id) => ({
+  type: LIKE_POST,
+  post_id
+})
+
+export const unlikePost = (post_id) => ({
+  type: UNLIKE_POST,
+  post_id
 })

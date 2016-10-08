@@ -16,3 +16,23 @@ export const createPost = (post, success, error) => {
     error
   });
 }
+
+export const createLike = (post_id, success, error) => {
+  $.ajax({
+    method: "POST",
+    url: "api/likes",
+    data: { like: post_id },
+    success,
+    error
+  })
+}
+
+export const destroyLike = (post_id, success, error) => {
+  $.ajax({
+    method: "DELETE",
+    url: "api/likes",
+    data: { like: post_id },
+    success,
+    error
+  })
+}

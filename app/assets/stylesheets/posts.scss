@@ -31,7 +31,8 @@ main.feed {
 }
 
 .image-info {
-  padding: 15px 25px;
+  padding: 0 25px;
+  padding-top: 15px;
   border-top: 1px solid #efefef;
   color: #4b4d4f;
 }
@@ -39,10 +40,6 @@ main.feed {
 .comment-user {
   font-weight: bold;
 }
-
-// .comment {
-//   display: inline;
-// }
 
 .comment-body {
   display: inline;
@@ -73,4 +70,8 @@ img.post-image {
 
 .likes {
   padding-bottom: 10px;
+}
+
+.comment-form {
+  padding: 25px 25px;
 }
