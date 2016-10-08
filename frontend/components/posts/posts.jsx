@@ -1,5 +1,5 @@
 import React from "react";
-import Post from './post.jsx';
+import Post from "./post";
 
 
 export default class Posts extends React.Component {
@@ -16,9 +16,18 @@ export default class Posts extends React.Component {
   allPosts() {
 
     if (this.props.posts.length) {
-      return this.props.posts.map((post, idx) => (
-        <Post key={idx} post={post} />
-      ));
+      return this.props.posts.map((post, idx) => {
+
+        let props = {
+          createComment: this.props.createComment,
+          post
+        }
+
+        return (
+          <Post key={idx} props={props} />
+        )
+
+      });
     };
 
   }

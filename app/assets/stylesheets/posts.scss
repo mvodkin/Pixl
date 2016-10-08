@@ -54,12 +54,12 @@ main.feed {
 }
 
 .image_container {
-  display: none;
+  overflow: auto;
 }
 
 img.post-image {
   width: 100%;
-  height: 100%;
+  display: inline-block;
 }
 
 .likes li {

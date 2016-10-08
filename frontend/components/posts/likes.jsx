@@ -45,7 +45,7 @@ const Like = ({post}) => {
       )
     }
   };
-
+  
   return (
     <div className="likes">
       {likes()}
