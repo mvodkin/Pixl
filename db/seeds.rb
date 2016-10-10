@@ -17,6 +17,8 @@ ActiveRecord::Base.transaction do
     email: "max@gmail.com",
     password: "password"
   )
+  a = User.create(username: "Matt Damon", email: "matt@email.com", password: "password")
+  b = User.create(username: "Hellen Mirren", email: "hellen@gmail.com", password: "password")
   guest.save
   max.save
 

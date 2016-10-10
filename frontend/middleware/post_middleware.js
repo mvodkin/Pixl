@@ -5,7 +5,9 @@ import {
   LIKE_POST,
   UNLIKE_POST,
   receivePosts,
-  receiveComment
+  receiveComment,
+  receiveLike,
+  removeLike
 } from '../actions/post_actions';
 
 import {
@@ -20,6 +22,12 @@ import { createComment } from '../util/comment_api_util';
 const PostMiddleware = ({getState, dispatch}) => next => action => {
   const fetchPostsSuccessCallback = (posts) => dispatch(receivePosts(posts));
   const createCommentSuccessCallback = (comment) => dispatch(receiveComment(comment));
+  const likeSuccessCallback = (like) => {
+    dispatch(receiveLike(like.liked_post_id, like.liker))
+  }
+  const unlikeSuccessCallback = (like) => {
+    dispatch(removeLike(like.liked_post_id, like.liker))
+  }
 
   switch (action.type) {
     case REQUEST_POSTS:
@@ -33,15 +41,15 @@ const PostMiddleware = ({getState, dispatch}) => next => action => {
       return next(action);
     case UNLIKE_POST:
       destroyLike(
-        actions.post_id,
-        (data) => console.log(data),
+        action.post_id,
+        unlikeSuccessCallback,
         (error) => console.log(error)
       );
       return next(action);
     case LIKE_POST:
       createLike(
         action.post_id,
-        (data) => console.log(data),
+        likeSuccessCallback,
         (error) => console.log(error)
       );
       return next(action);

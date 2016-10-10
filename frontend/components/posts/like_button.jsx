@@ -22,33 +22,39 @@ class LikeButton extends React.Component {
     this.setLikeState();
   }
 
-  componentDidUpdate() {
-    this.setLikeState();
-  }
+  // componentDidUpdate() {
+  //   this.setLikeState();
+  // }
 
   handleClick() {
+
     if (this.state.liked) {
-      this.props.unlikePost(this.props.currentUser.id);
+      this.props.unlikePost(this.props.post_id.toString());
     } else {
-      this.props.likePost(this.props.currentUser.id);
+      this.props.likePost(this.props.post_id.toString());
     }
     this.setState({liked: !this.state.liked});
   }
 
-  buttonType() {
-    return this.state.liked ? <div>Unlike</div> : <div>Like</div>
+  // buttonType() {
+  //   return this.state.liked ? <div className="unlike"></div> : <div className="like"></div>
+  // }
+
+  buttonClass() {
+    return this.state.liked ? "like-button unlike" : "like-button like"
   }
 
   render() {
 
     return (
-      <div className="like" onClick={this.handleClick}>
-        {this.buttonType()}
+      <div className={this.buttonClass()} onClick={this.handleClick}>
       </div>
     );
 
   }
 
 }
+
+// {this.buttonType()}
 
 export default LikeButton;

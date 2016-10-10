@@ -35,8 +35,10 @@ const Post = ({props}) => {
           {renderLikes()}
           <Comments post={post} />
         </section>
-        <LikeButton {...likeButtonProps} />
-        <CommentForm props={props} />
+        <div className="reactions">
+          <LikeButton {...likeButtonProps} />
+          <CommentForm props={props} />
+        </div>
       </article>
     </li>
   );

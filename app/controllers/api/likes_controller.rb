@@ -1,15 +1,16 @@
 class Api::LikesController < ApplicationController
 
   def create
+
     @like = Like.new(
       liker_id: current_user.id,
       liked_post_id: likes_params[:post_id]
     )
 
     if @like.save
-      render json: @like, status 200
+      render :show
     else
-      render json: @like.errors.full_messages, status 422
+      render json: @like.errors.full_messages, status: 422
     end
   end
 
@@ -20,18 +21,17 @@ class Api::LikesController < ApplicationController
     )
 
     if @like
-      like = @like.dup
+      render :show
       @like.destroy
-      render json: like, status 200
     else
-      render json: ["like not found"], status 422
+      render json: ["like not found"], status: 422
     end
   end
 
   private
 
   def likes_params
-    params.require(:like).permit(:post_id)
+    params.require(:likes).permit(:post_id)
   end
 
 end

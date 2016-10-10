@@ -35,6 +35,12 @@ export default class Posts extends React.Component {
 
   }
 
+  renderProfileInfo() {
+    if (this.props.location.pathname !== "/") {
+
+    }
+  }
+
   render() {
     return (
       <main className="feed">

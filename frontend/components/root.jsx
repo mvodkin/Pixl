@@ -21,6 +21,7 @@ const Root = ({store}) => {
 
         <Route path="/" component={App} onEnter={_ensureLoggedIn}>
           <IndexRoute component={PostsContainer} />
+          <Route path="/user/:userId" component={PostsContainer} onEnter={_ensureLoggedIn}/>
         </Route>
         <Route path="login" component={SessionFormContainer} />
         <Route path="signup" component={SessionFormContainer} />

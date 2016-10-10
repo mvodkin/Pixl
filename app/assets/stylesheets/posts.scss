@@ -73,5 +73,28 @@ img.post-image {
 }
 
 .comment-form {
-  padding: 25px 25px;
+  float: left;
+  padding: 25px 0;
+  padding-left: 15px;
+}
+
+.like-button {
+  background-image: image-url("hearts.png");
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  float: left;
+  margin: 20px 0;
+  margin-left: 25px;
+  cursor: pointer;
+  // background-position: 20px 20px
+}
+
+.unlike {
+  background-position: 1px 0px;
+}
+
+.like {
+  background-position: -28px 0px;
 }
