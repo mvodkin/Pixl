@@ -1,0 +1,24 @@
+.canvas {
+  width: 700px;
+  border-top: 1px solid #efefef;
+  border-right: 1px solid #efefef;
+  // border-top: 1px solid #efefef;
+  // border-bottom: 1px solid #efefef;
+}
+
+.pixl {
+  width: 13px;
+  height: 13px;
+  float: left;
+  border-left: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+}
+
+.circle-picker {
+  width: 100% !important;
+  padding: 15px 15px;
+}
+
+.circle-picker > div > div {
+  margin: 0px 10px 14px 0px !important;
+}

@@ -23,7 +23,7 @@ const Header = ({logout, currentUser}) => {
 
       <div className="nav-list-container">
         <ul className="nav-list">
-          <li><Link to="/" data-text="new post">new post</Link></li>
+          <li><Link to="/new" data-text="new post">new post</Link></li>
           <li><Link to="/" data-text="notifications">notifications</Link></li>
           <li><Link to={profileLink()} data-text="profile">profile</Link></li>
           <li><div onClick={handleLogout}>log out</div></li>

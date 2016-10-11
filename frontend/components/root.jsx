@@ -3,8 +3,9 @@ import { Provider } from "react-redux";
 import { Router, Route, IndexRoute, hashHistory } from "react-router";
 
 import App from "./app";
-import SessionFormContainer from './session/session_form_container';
-import PostsContainer from './posts/posts_container';
+import SessionFormContainer from "./session/session_form_container";
+import PostsContainer from "./posts/posts_container";
+import CreatePostFormContainer from "./create_post/create_post_form_container";
 
 const Root = ({store}) => {
 
@@ -22,6 +23,7 @@ const Root = ({store}) => {
         <Route path="/" component={App} onEnter={_ensureLoggedIn}>
           <IndexRoute component={PostsContainer} />
           <Route path="/user/:userId" component={PostsContainer} onEnter={_ensureLoggedIn}/>
+          <Route path="/new" component={CreatePostFormContainer} onEnter={_ensureLoggedIn}/>
         </Route>
         <Route path="login" component={SessionFormContainer} />
         <Route path="signup" component={SessionFormContainer} />
