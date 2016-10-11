@@ -2,6 +2,7 @@
   width: 700px;
   border-top: 1px solid #efefef;
   border-right: 1px solid #efefef;
+  cursor: crosshair;
   // border-top: 1px solid #efefef;
   // border-bottom: 1px solid #efefef;
 }
@@ -12,6 +13,12 @@
   float: left;
   border-left: 1px solid #efefef;
   border-bottom: 1px solid #efefef;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .circle-picker {

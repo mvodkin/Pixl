@@ -6,14 +6,27 @@ class Canvas extends React.Component {
     super();
     this.state = {
       pixls: new Array(2500).fill("#f7f7f7"),
-      brushColor: "#000000"
+      brushColor: "#000000",
+      brushEnabled: false
     };
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.setBrushColor = this.setBrushColor.bind(this);
+    // this.toggleBrush = this.toggleBrush.bind(this);
+    this.enableBrush = this.enableBrush.bind(this);
+    this.disableBrush = this.disableBrush.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleMouseDown(e) {
-    // debugger
+    if (this.state.brushEnabled) {
+      const idx = e.currentTarget.id;
+      let newPixls = this.state.pixls.slice();
+      newPixls[idx] = this.state.brushColor;
+      this.setState({ pixls: newPixls });
+    }
+  }
+
+  handleClick(e) {
     const idx = e.currentTarget.id;
     let newPixls = this.state.pixls.slice();
     newPixls[idx] = this.state.brushColor;
@@ -22,6 +35,14 @@ class Canvas extends React.Component {
 
   setBrushColor(color) {
     this.setState({ brushColor: color.hex });
+  }
+
+  enableBrush() {
+    this.setState({ brushEnabled: true });
+  }
+
+  disableBrush() {
+    this.setState({ brushEnabled: false })
   }
 
   renderPixls() {
@@ -33,7 +54,8 @@ class Canvas extends React.Component {
         value={i}
         id={i}
         style={{backgroundColor: `${this.state.pixls[i]}`}}
-        onMouseEnter={this.handleMouseDown}></div>)
+        onMouseOver={this.handleMouseDown}
+        onClick={this.handleClick}></div>)
     }
     return allCells;
   }
@@ -42,7 +64,10 @@ class Canvas extends React.Component {
 
     return (
       <section className="easel group">
-        <section className="canvas group">
+        <section
+          className="canvas group"
+          onMouseDown={this.enableBrush}
+          onMouseUp={this.disableBrush}>
           {this.renderPixls()}
         </section>
         <div className="palette">
