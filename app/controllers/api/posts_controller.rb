@@ -12,7 +12,15 @@ class Api::PostsController < ApplicationController
   end
 
   def index
-    @posts = current_user.followed_posts.includes(:comments).includes(:likes)
+    if params[:userId] == ""
+      @posts = current_user.followed_posts
+        .includes(:user, comments: :user, likes: :liker)
+    # elsif params[:hashtag]
+    #   @posts = Post.all
+    else
+      @posts = Post.where(user_id: params[:userId])
+        .includes(:user, comments: :user, likes: :liker)
+    end
     render :index
   end
 

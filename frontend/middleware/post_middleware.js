@@ -33,7 +33,8 @@ const PostMiddleware = ({getState, dispatch}) => next => action => {
     case REQUEST_POSTS:
       fetchPosts(
         fetchPostsSuccessCallback,
-        error => console.log(error)
+        error => console.log(error),
+        action.userId
       );
       return next(action);
     case CREATE_POST:

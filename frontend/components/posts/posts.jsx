@@ -1,5 +1,6 @@
 import React from "react";
 import Post from "./post";
+import Profile from "../profile/profile";
 
 
 export default class Posts extends React.Component {
@@ -10,8 +11,26 @@ export default class Posts extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestPosts();
+    if (this.props.location.pathname === "/") {
+      this.props.requestPosts();
+    } else {
+      const userId = this.props.params.userId;
+      this.props.requestPosts(userId);
+      this.props.requestProfile(userId);
+    }
   }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.params.userId === newProps.params.userId) return;
+    if (newProps.location.pathname === "/") {
+      newProps.requestPosts();
+    } else {
+      const userId = newProps.params.userId;
+      newProps.requestPosts(userId);
+      newProps.requestProfile(userId);
+    }
+  }
+
 
   allPosts() {
 
@@ -37,13 +56,16 @@ export default class Posts extends React.Component {
 
   renderProfileInfo() {
     if (this.props.location.pathname !== "/") {
-
+      return (
+        <Profile {...this.props} />
+      );
     }
   }
 
   render() {
     return (
       <main className="feed">
+        {this.renderProfileInfo()}
         <div className="posts">
           <ul>{this.allPosts()}</ul>
         </div>

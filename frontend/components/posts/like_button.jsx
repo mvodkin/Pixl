@@ -22,10 +22,6 @@ class LikeButton extends React.Component {
     this.setLikeState();
   }
 
-  // componentDidUpdate() {
-  //   this.setLikeState();
-  // }
-
   handleClick() {
 
     if (this.state.liked) {

@@ -2,18 +2,11 @@ export const fetchPosts = (success, error, userId = null) => {
   $.ajax({
     method: "GET",
     url: "api/posts",
-    data: userId,
+    data: { userId },
     success,
     error
   });
 }
-
-// export const fetchUserPosts = (userId, success, error) => {
-//   $.ajax({
-//     method: "GET",
-//     url: ""
-//   })
-// }
 
 export const createPost = (post, success, error) => {
   $.ajax({

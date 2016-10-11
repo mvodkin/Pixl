@@ -3,8 +3,8 @@ main.feed {
   font-family: 'VT323', monospace;
   font-size: 20px;
   background: #fafafa;
+  // background-image: image-url("wallpaper-streaks-pink-black-blue-lines-stripes-3840x2160-c3-000000-40e0d0-ffc0cb-l3-31-62-124-a-225-f-1.png");
   height: 100%;
-  min-height: 100%;
   z-index: 0;
 }
 
@@ -39,10 +39,13 @@ main.feed {
 
 .comment-user {
   font-weight: bold;
+  // float: left;
+  display: inline;
 }
 
 .comment-body {
   display: inline;
+  // float: left;
 }
 
 .comments {
@@ -76,6 +79,11 @@ img.post-image {
   float: left;
   padding: 25px 0;
   padding-left: 15px;
+  width: 70%;
+}
+
+.comment-input {
+  width: 100%;
 }
 
 .like-button {

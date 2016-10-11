@@ -3,6 +3,7 @@ import Likes from "./likes";
 import Comments from "./comments"
 import CommentForm from "./comment_form";
 import LikeButton from "./like_button";
+import { Link } from "react-router";
 
 
 const Post = ({props}) => {
@@ -25,11 +26,15 @@ const Post = ({props}) => {
     post_id: post.id
   };
 
+
   return (
     <li>
       <article className="post">
-
-        <h3 className="post-user">{post.user.username}</h3>
+        <h3 className="post-user">
+          <Link to={`user/${post.user.id}`}>
+            {post.user.username}
+          </Link>
+        </h3>
           <img className="post-image" src={post.img_url}></img>
         <section className="image-info">
           {renderLikes()}

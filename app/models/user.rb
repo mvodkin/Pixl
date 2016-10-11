@@ -49,7 +49,23 @@ class User < ActiveRecord::Base
     source: :posts
 
   def num_followers
-    Follow.where(followee_id: self.id).count(:id)
+    followers.count(:id) || 0
+  end
+
+  def num_posts
+    posts.count(:id) || 0
+  end
+
+  def num_following
+    you_following.count(:id) || 0
+  end
+
+  def profile_pic
+    Post.select(:img_url).where(id: self.profile_pic_id).first
+  end
+
+  def following?
+    self.followers.include?(current_user)
   end
 
 

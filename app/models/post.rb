@@ -29,18 +29,17 @@ class Post < ActiveRecord::Base
     through: :likes,
     source: :liker
 
-  def num_likes
-    Like.where(liked_post_id: self.id).count(:id)
-  end
-
   has_many :comments,
     class_name: "Comment",
     primary_key: :id,
     foreign_key: :post_id
 
+  def num_likes
+    Like.where(liked_post_id: self.id).count(:id)
+  end
+
   def num_comments
     Comment.where(post_id: self.id).count(:id)
   end
-
 
 end

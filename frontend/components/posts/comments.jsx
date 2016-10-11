@@ -3,9 +3,9 @@ import React from "react";
 const Comments = ({post}) => {
 
   const renderComment = (comment, idx) => (
-    <li key={idx + 1} className="comment">
-      <inline className="comment-user">{comment.user.username}: </inline>
-      <div className="comment-body">{comment.body}</div>
+    <li key={idx + 1} className="comment group">
+      <h3 className="comment-user">{comment.user.username}: </h3>
+      <p className="comment-body">{comment.body}</p>
     </li>
   );
 
@@ -16,9 +16,9 @@ const Comments = ({post}) => {
 
   return (
     <ul className="comments">
-      <li key={0} className="comment">
-        <inline className="comment-user">{post.user.username}: </inline>
-        <div className="comment-body">{post.description}</div>
+      <li key={0} className="comment group">
+        <h3 className="comment-user">{post.user.username}: </h3>
+        <p className="comment-body">{post.description}</p>
       </li>
       {allComments}
     </ul>

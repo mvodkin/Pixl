@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Like = ({post}) => {
 
@@ -11,11 +12,25 @@ const Like = ({post}) => {
         {
           post.likers.map((liker, idx) => {
             if (idx === post.likers.length - 1) {
-              return <li key={idx}>{liker.username}</li>
+              return (
+                 <li key={idx}>
+                   <Link to={`user/${liker.id}`}>
+                     {liker.username}
+                   </Link>
+                 </li>
+               );
             } else if (idx === post.likers.length - 2) {
-              return <li key={idx}>{liker.username}<inline> and </inline></li>
+              return (
+                <li key={idx}>
+                  <Link to={`user/${liker.id}`}
+                    className="liker-link">{liker.username}</Link><inline> and </inline>
+                </li>
+              )
             } else {
-              return <li key={idx}>{liker.username}<inline>, </inline></li>
+              return <li key={idx}>
+                <Link to={`user/${liker.id}`}
+                  className="liker-link">{liker.username}</Link><inline>, </inline>
+                </li>
             }
           })
         } <inline> like this</inline>
@@ -28,7 +43,9 @@ const Like = ({post}) => {
     if (post.num_likes === 1) {
       return (
         <div>
-          {post.likers[0].username} likes this
+          <Link
+            to={`user/${post.likers[0].id}`}
+            className="liker-link">{post.likers[0].username}</Link> likes this
         </div>
       )
     } else if (post.num_likes < 9) {
@@ -45,7 +62,7 @@ const Like = ({post}) => {
       )
     }
   };
-  
+
   return (
     <div className="likes">
       {likes()}

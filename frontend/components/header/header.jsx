@@ -1,11 +1,15 @@
 import React from "react";
 import { Link, hashHistory } from "react-router";
 
-const Header = ({logout}) => {
+const Header = ({logout, currentUser}) => {
 
   const handleLogout = () => {
     logout();
     hashHistory.push("login");
+  }
+
+  const profileLink = () => {
+    return `/user/${currentUser.id}`
   }
 
   return (
@@ -21,7 +25,7 @@ const Header = ({logout}) => {
         <ul className="nav-list">
           <li><Link to="/" data-text="new post">new post</Link></li>
           <li><Link to="/" data-text="notifications">notifications</Link></li>
-          <li><Link to="/" data-text="profile">profile</Link></li>
+          <li><Link to={profileLink()} data-text="profile">profile</Link></li>
           <li><div onClick={handleLogout}>log out</div></li>
         </ul>
       </div>
