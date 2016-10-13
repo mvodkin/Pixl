@@ -8,6 +8,7 @@
 #  user_id     :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  drawing     :json
 #
 
 require 'test_helper'

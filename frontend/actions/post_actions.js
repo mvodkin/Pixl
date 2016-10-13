@@ -8,7 +8,12 @@ export const UNLIKE_POST = "UNLIKE_POST";
 export const RECEIVE_LIKE = "RECEIVE_LIKE";
 export const REMOVE_LIKE = "REMOVE_LIKE";
 
-export const requestPosts = (userId) => ({
+export const createPost = (post) => ({
+  type: CREATE_POST,
+  post
+})
+
+export const requestPosts = (userId, explore = false) => ({
   type: REQUEST_POSTS,
   userId
 })

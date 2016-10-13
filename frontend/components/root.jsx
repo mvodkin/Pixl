@@ -16,14 +16,24 @@ const Root = ({store}) => {
     }
   };
 
+  const _ensureSufficientFollowing = (nextState, replace) => {
+    const currentUser = store.getState().session.currentUser;
+    if (!currentUser) {
+      replace('login');
+    } else if (currentUser.num_following < 5) {
+      replace('/explore');
+    }
+  }
+
   return(
     <Provider store={store}>
       <Router history={hashHistory}>
 
         <Route path="/" component={App} onEnter={_ensureLoggedIn}>
-          <IndexRoute component={PostsContainer} />
-          <Route path="/user/:userId" component={PostsContainer} onEnter={_ensureLoggedIn}/>
-          <Route path="/new" component={CreatePostFormContainer} onEnter={_ensureLoggedIn}/>
+          <IndexRoute component={PostsContainer} onEnter={_ensureSufficientFollowing} />
+          <Route path="/user/:userId" component={PostsContainer} onEnter={_ensureLoggedIn} />
+          <Route path="/new" component={CreatePostFormContainer} onEnter={_ensureLoggedIn} />
+          <Route path="/explore" component={PostsContainer} onEnter={_ensureLoggedIn} />
         </Route>
         <Route path="login" component={SessionFormContainer} />
         <Route path="signup" component={SessionFormContainer} />

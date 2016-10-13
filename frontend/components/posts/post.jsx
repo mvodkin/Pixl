@@ -26,6 +26,24 @@ const Post = ({props}) => {
     post_id: post.id
   };
 
+  const renderDrawing = () => {
+    // debugger
+    const allCells = [];
+
+    if (post.drawing) {
+
+      for (let i = 0; i < 2500; i++) {
+        allCells.push(<li
+          className={"pixl gridlines-off"}
+          key={i}
+          value={i}
+          id={i}
+          style={{backgroundColor: `${post.drawing[i]}`}}></li>)
+      }
+      return allCells;
+    }
+  }
+
 
   return (
     <li>
@@ -35,7 +53,7 @@ const Post = ({props}) => {
             {post.user.username}
           </Link>
         </h3>
-          <img className="post-image" src={post.img_url}></img>
+        <ul className="canvas group">{renderDrawing()}</ul>
         <section className="image-info">
           {renderLikes()}
           <Comments post={post} />
@@ -48,5 +66,7 @@ const Post = ({props}) => {
     </li>
   );
 };
+
+// <img className="post-image" src={post.img_url}></img>
 
 export default Post;

@@ -12,11 +12,12 @@ class Api::PostsController < ApplicationController
   end
 
   def index
-    if params[:userId] == ""
+    if params[:explore] == "true"
+      @posts = Post.all.includes(:user, comments: :user, likes: :liker)
+    elsif params[:userId] == ""
       @posts = current_user.followed_posts
         .includes(:user, comments: :user, likes: :liker)
-    # elsif params[:hashtag]
-    #   @posts = Post.all
+      @posts.concat(current_user.posts)
     else
       @posts = Post.where(user_id: params[:userId])
         .includes(:user, comments: :user, likes: :liker)
@@ -27,7 +28,7 @@ class Api::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:img_url, :description)
+    params.require(:post).permit(:description, drawing: [])
   end
 
 end

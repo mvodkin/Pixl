@@ -1,4 +1,4 @@
-json.extract! user, :id, :username, :email, :profile_pic_id, :profile_desc
+json.extract! user, :id, :username, :email, :profile_pic_id, :profile_desc, :num_following
 
 # if user.posts
 #   json.array! user.posts do |post|

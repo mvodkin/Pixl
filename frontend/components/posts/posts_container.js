@@ -15,7 +15,7 @@ const mapStateToProps = ({post, session, profile}) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  requestPosts: (userId) => dispatch(requestPosts(userId)),
+  requestPosts: (userId, explore) => dispatch(requestPosts(userId, explore)),
   createComment: (comment) => dispatch(createComment(comment)),
   likePost: (postId) => dispatch(likePost(postId)),
   unlikePost: (postId) => dispatch(unlikePost(postId)),

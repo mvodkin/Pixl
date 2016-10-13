@@ -136,8 +136,7 @@ class SessionForm extends React.Component {
             <input className="submit-login"
               type="submit"
               data-text="Test Access"
-              value="Test access"
-              ></input>
+              value="Test access"></input>
           </form>
           {this.navLink()}
   			</div>

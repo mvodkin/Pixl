@@ -1,18 +1,7 @@
 .canvas {
   width: 700px;
-  border-top: 1px solid #efefef;
-  border-right: 1px solid #efefef;
-  cursor: crosshair;
-  // border-top: 1px solid #efefef;
-  // border-bottom: 1px solid #efefef;
-}
 
-.pixl {
-  width: 13px;
-  height: 13px;
-  float: left;
-  border-left: 1px solid #efefef;
-  border-bottom: 1px solid #efefef;
+  // cursor: crosshair;
   user-drag: none;
   user-select: none;
   -moz-user-select: none;
@@ -21,6 +10,29 @@
   -ms-user-select: none;
 }
 
+.new-post {
+  border-top: 1px solid rgba(138, 138, 138, 0.15);
+  border-right: 1px solid rgba(138, 138, 138, 0.15);
+}
+
+.pixl {
+  width: 13px;
+  height: 13px;
+  float: left;
+  border-left: 1px solid rgba(138, 138, 138, 0.1);//#efefef;
+  border-bottom: 1px solid rgba(138, 138, 138, 0.1);//#efefef;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+// .pixl:hover {
+//   background: rgba(255, 0, 120, 0.3);
+// }
+
 .circle-picker {
   width: 100% !important;
   padding: 15px 15px;
@@ -28,4 +40,65 @@
 
 .circle-picker > div > div {
   margin: 0px 10px 14px 0px !important;
+}
+
+.cover {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.popover {
+  position: fixed;
+  z-index: 9999;
+  top: 50%;
+  left: 5%;
+}
+
+.gridlines-on {
+  // border-style: dotted;
+}
+
+.gridlines-off {
+  border-color: transparent;
+}
+
+.canvas-button {
+  padding: 7px 7px;
+  // width: 150px;
+  // height: 150px;
+  // border-radius: 50%;
+  background-color: black;
+  color: white;
+  float: left;
+  margin: 5px 5px;
+  cursor: pointer;
+}
+
+.share-pixls {
+  font-size: 24px;
+  background-color: #FF0078;
+}
+
+.new-post-submit-form > input {
+  display: block;
+}
+
+.new-post-input {
+  padding: 25px 15px;
+  width: 100%;
+}
+
+.brush-tool {
+  cursor: image-url("pen1.png") 2 2, auto;
+}
+
+.bucket-tool {
+  cursor: image-url("bucket1.png") 2 2, auto;
+}
+
+.eraser-tool {
+  cursor: image-url("eraser1.png") 2 2, auto;
 }

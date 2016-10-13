@@ -34,11 +34,16 @@ const PostMiddleware = ({getState, dispatch}) => next => action => {
       fetchPosts(
         fetchPostsSuccessCallback,
         error => console.log(error),
-        action.userId
+        action.userId,
+        action.explore
       );
       return next(action);
     case CREATE_POST:
-      // createPost()
+      createPost(
+        action.post,
+        data => console.log(data),
+        error => console.log(error)
+      )
       return next(action);
     case UNLIKE_POST:
       destroyLike(
