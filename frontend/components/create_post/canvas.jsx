@@ -1,5 +1,6 @@
 import React from "react";
-import { SketchPicker, CirclePicker, ChromePicker } from "react-color";
+import { CirclePicker, ChromePicker } from "react-color";
+import { hashHistory } from "react-router";
 
 class Canvas extends React.Component {
 
@@ -191,6 +192,7 @@ class Canvas extends React.Component {
       description: this.state.description
     };
     this.props.createPost({post});
+    hashHistory.push("/")
   }
 
   render() {

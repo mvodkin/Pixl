@@ -1,6 +1,7 @@
 import React from "react";
 import Post from "./post";
 import Profile from "../profile/profile";
+import Infinite from "react-infinite";
 
 
 export default class Posts extends React.Component {
@@ -71,11 +72,17 @@ export default class Posts extends React.Component {
     return (
       <main className="feed">
         {this.renderProfileInfo()}
-        <div className="posts">
-          <ul>{this.allPosts()}</ul>
-        </div>
+
+          <div className="posts">
+            <ul>{this.allPosts()}</ul>
+          </div>
+  
       </main>
     );
   };
 
 }
+// <Infinite
+//   containerHeight={1800}
+//   elementHeight={900}
+//   InfiniteLoadBeginEdgeOffset={700}/>

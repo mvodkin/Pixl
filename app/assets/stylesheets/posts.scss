@@ -9,8 +9,7 @@ main.feed {
   // left: 0;
   background: #fafafa;
   // background-image: image-url("wallpaper-streaks-pink-black-blue-lines-stripes-3840x2160-c3-000000-40e0d0-ffc0cb-l3-31-62-124-a-225-f-1.png");
-  height: 100%;
-  z-index: -1;
+  min-height: 1000px;
 }
 
 .posts {

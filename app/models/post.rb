@@ -15,10 +15,13 @@ class Post < ActiveRecord::Base
 
   validates :user_id, presence: true
 
-  belongs_to :user
+  belongs_to :author,
+    class_name: "User",
+    primary_key: :id,
+    foreign_key: :user_id
 
   has_many :followers,
-    through: :user,
+    through: :author,
     source: :followers
 
   has_many :likes,
@@ -42,5 +45,14 @@ class Post < ActiveRecord::Base
   def num_comments
     Comment.where(post_id: self.id).count(:id)
   end
+
+  def self.feed(current_user)
+
+    Post.joins(author: :following_you)
+      .where("follows.follower_id = :id OR posts.user_id = :id", id: current_user.id)
+      .order("posts.id DESC").select("DISTINCT ON (posts.id) posts.*")
+
+  end
+
 
 end

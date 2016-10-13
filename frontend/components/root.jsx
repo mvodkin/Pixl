@@ -20,7 +20,7 @@ const Root = ({store}) => {
     const currentUser = store.getState().session.currentUser;
     if (!currentUser) {
       replace('login');
-    } else if (currentUser.num_following < 5) {
+    } else if (currentUser.num_following < 1) {
       replace('/explore');
     }
   }
