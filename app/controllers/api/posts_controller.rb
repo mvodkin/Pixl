@@ -1,7 +1,6 @@
 class Api::PostsController < ApplicationController
 
   def create
-    p params
     @post = Post.new(post_params)
     @post.user_id = current_user.id
 
@@ -17,7 +16,7 @@ class Api::PostsController < ApplicationController
       @posts = Post.all.includes(:author, :likes, :likers, comments: :user)
     elsif params[:userId] == ""
       @posts = Post.feed(current_user)
-        .includes(:author, :likes, :likers, comments: :user)#.page(1).per_page(2)
+        .preload(:author, :likers, comments: :user)#.page(1).per_page(2)
 
     else
       @posts = Post.where(user_id: params[:userId])

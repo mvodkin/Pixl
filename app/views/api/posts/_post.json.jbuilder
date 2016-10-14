@@ -1,5 +1,5 @@
 json.(post, :id, :description, :created_at, :drawing)
-json.num_likes post.likes.length
+json.num_likes post.likers.length
 json.num_comments post.comments.length
 json.user(post.author, :username, :id) #:profile_pic)
 json.comments post.comments do |comment|
