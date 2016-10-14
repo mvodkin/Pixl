@@ -73,16 +73,19 @@ export default class Posts extends React.Component {
       <main className="feed">
         {this.renderProfileInfo()}
 
+
           <div className="posts">
             <ul>{this.allPosts()}</ul>
           </div>
-  
+
       </main>
     );
   };
 
 }
+
 // <Infinite
-//   containerHeight={1800}
-//   elementHeight={900}
-//   InfiniteLoadBeginEdgeOffset={700}/>
+//   useWindowAsScrollContainer={true}
+//   InfiniteLoadBeginEdgeOffset={200}
+//   elementHeight={900}>
+// </Infinite>

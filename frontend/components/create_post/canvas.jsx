@@ -147,11 +147,11 @@ class Canvas extends React.Component {
 
   easelClass() {
     if (this.state.brushToolEnabled) {
-      return "easel group brush-tool";
+      return "brush-tool";
     } else if (this.state.eraserToolEnabled) {
-      return "easel group eraser-tool";
+      return "eraser-tool";
     } else if (this.state.paintBucket) {
-      return "easel group bucket-tool";
+      return "bucket-tool";
     }
   }
 
@@ -197,9 +197,9 @@ class Canvas extends React.Component {
 
   render() {
     return (
-      <section className={this.easelClass()}>
+      <section className="easel group">
 
-        <ul className={`canvas group new-post ${this.state.pixlClass}`}>
+        <ul className={`canvas group new-post ${this.easelClass()} ${this.state.pixlClass}`}>
           {this.renderPixls()}
         </ul>
 

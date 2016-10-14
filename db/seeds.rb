@@ -22,11 +22,11 @@ ActiveRecord::Base.transaction do
   guest.save
   max.save
 
-  first = Post.create(
-    img_url: "https://www.petdrugsonline.co.uk/images/page-headers/cats-master-header",
-    description: "first_post",
-    user_id: 2
-  )
+  # first = Post.create(
+  #   img_url: "https://www.petdrugsonline.co.uk/images/page-headers/cats-master-header",
+  #   description: "first_post",
+  #   user_id: 2
+  # )
 
   follow = Follow.create(follower_id: 1, followee_id: 2)
 end

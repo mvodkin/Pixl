@@ -1,6 +1,7 @@
 class Api::PostsController < ApplicationController
 
   def create
+    p params
     @post = Post.new(post_params)
     @post.user_id = current_user.id
 
