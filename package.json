@@ -26,10 +26,12 @@
     "react-infinite": "^0.10.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
+    "react-spinkit": "^1.1.11",
     "redux": "^3.6.0",
     "webpack": "^1.13.2"
   },
   "devDependencies": {
+    "css-loader": "^0.25.0",
     "eslint": "^3.7.1",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-plugin-import": "^2.0.0",

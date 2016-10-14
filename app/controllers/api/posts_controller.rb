@@ -12,7 +12,7 @@ class Api::PostsController < ApplicationController
   end
 
   def index
-    if params[:explore] == "true"
+    if params[:explore] != "false"
       @posts = Post.all.includes(:author, :likes, :likers, comments: :user)
     elsif params[:userId] == ""
       @posts = Post.feed(current_user)

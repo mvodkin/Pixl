@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import LikeButton from "./like_button";
 
 const Like = ({post}) => {
 
@@ -40,7 +41,13 @@ const Like = ({post}) => {
 
   const likes = () => {
 
-    if (post.num_likes === 1) {
+    if (post.num_likes === 0) {
+      return (
+        <div>
+          Be the first to <span onClick={LikeButton.handleClick}>like this.</span>
+        </div>
+      )
+    } else if (post.num_likes === 1) {
       return (
         <div>
           <Link

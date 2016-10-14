@@ -14,12 +14,20 @@ const Comments = ({post}) => {
     renderComment(comment, idx)
   ))
 
+  const description = () => {
+    if (post.description) {
+      return (
+        <li key={0} className="comment group">
+          <h3 className="comment-user">{post.user.username}: </h3>
+          <p className="comment-body">{post.description}</p>
+        </li>
+      );
+    }
+  }
+
   return (
     <ul className="comments">
-      <li key={0} className="comment group">
-        <h3 className="comment-user">{post.user.username}: </h3>
-        <p className="comment-body">{post.description}</p>
-      </li>
+      {description()}
       {allComments}
     </ul>
   );

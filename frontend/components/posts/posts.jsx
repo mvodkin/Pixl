@@ -2,6 +2,7 @@ import React from "react";
 import Post from "./post";
 import Profile from "../profile/profile";
 import Infinite from "react-infinite";
+import Spinner from "react-spinkit";
 
 
 export default class Posts extends React.Component {
@@ -24,7 +25,6 @@ export default class Posts extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    // debugger
     if (this.props.params.userId === newProps.params.userId) return;
     if (newProps.location.pathname === "/") {
       newProps.requestPosts();
@@ -56,7 +56,12 @@ export default class Posts extends React.Component {
         )
 
       });
-    };
+    } else {
+      return <Spinner
+        style={{width: "100px", height: "100px"}}
+        spinnerName="cube-grid"
+        noFadeIn />
+    }
 
   }
 
@@ -71,6 +76,7 @@ export default class Posts extends React.Component {
   render() {
     return (
       <main className="feed">
+
         {this.renderProfileInfo()}
 
 
@@ -83,9 +89,3 @@ export default class Posts extends React.Component {
   };
 
 }
-
-// <Infinite
-//   useWindowAsScrollContainer={true}
-//   InfiniteLoadBeginEdgeOffset={200}
-//   elementHeight={900}>
-// </Infinite>

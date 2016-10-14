@@ -13,9 +13,10 @@ export const createPost = (post) => ({
   post
 })
 
-export const requestPosts = (userId, explore = false) => ({
+export const requestPosts = (userId, explore) => ({
   type: REQUEST_POSTS,
-  userId
+  userId,
+  explore
 })
 
 export const receivePosts = (posts) => ({
