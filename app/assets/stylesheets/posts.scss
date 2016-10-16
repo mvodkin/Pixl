@@ -2,11 +2,6 @@ main.feed {
   // font-family: 'Press Start 2P', cursive;
   font-family: 'VT323', monospace;
   font-size: 20px;
-  // position: fixed;
-  // top: 0;
-  // bottom: 0;
-  // right: 0;
-  // left: 0;
   background: #fafafa;
   // background-image: image-url("wallpaper-streaks-pink-black-blue-lines-stripes-3840x2160-c3-000000-40e0d0-ffc0cb-l3-31-62-124-a-225-f-1.png");
   min-height: 1000px;
@@ -18,7 +13,6 @@ main.feed {
 }
 
 .post {
-  // width: 45%;
   width: 700px;
   margin: 0 auto;
   display: flex;
@@ -31,7 +25,7 @@ main.feed {
 
 .post-user {
   padding: 15px 25px;
-  // border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
   font-weight: bold;
 }
 

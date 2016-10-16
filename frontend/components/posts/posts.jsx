@@ -15,7 +15,7 @@ export default class Posts extends React.Component {
   componentDidMount() {
     if (this.props.location.pathname === "/") {
       this.props.requestPosts();
-    } else if (this.props.pathname === "/explore") {
+    } else if (this.props.location.pathname === "/explore") {
       this.props.requestPosts(null, true)
     } else {
       const userId = this.props.params.userId;
@@ -25,7 +25,8 @@ export default class Posts extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.params.userId === newProps.params.userId) return;
+    // if (this.props.params.userId === newProps.params.userId) return;
+    if (newProps.location.pathname === this.props.location.pathname) return;
     if (newProps.location.pathname === "/") {
       newProps.requestPosts();
     } else if (newProps.location.pathname === "/explore") {

@@ -12,16 +12,14 @@ class Api::PostsController < ApplicationController
   end
 
   def index
-    if params[:explore] != "false"
-      @posts = Post.all.includes(:author, :likes, :likers, comments: :user)
+    if params[:explore] == "true"
+      @posts = Post.all.order("posts.id DESC").includes(:author, :likers, comments: :user)
     elsif params[:userId] == ""
       @posts = Post.feed(current_user)
-        .preload(:author, :likers, comments: :user)#.page(1).per_page(2)
-
+        .preload(:author, :likers, comments: :user)
     else
       @posts = Post.where(user_id: params[:userId])
-        .includes(:author, :likes, :likers, comments: :user)
-        # .includes(:user, comments: :user, likes: :liker)
+        .includes(:author, :likers, comments: :user)
     end
     render :index
   end
