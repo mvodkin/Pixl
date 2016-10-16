@@ -25,7 +25,6 @@ export default class Posts extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    // if (this.props.params.userId === newProps.params.userId) return;
     if (newProps.location.pathname === this.props.location.pathname) return;
     if (newProps.location.pathname === "/") {
       newProps.requestPosts();
@@ -74,10 +73,19 @@ export default class Posts extends React.Component {
     }
   }
 
+  renderExloreHeading() {
+    if (this.props.location.pathname === "/explore") {
+      return (
+        <h1 className="explore-heading">All Most Recent Drawings:</h1>
+      )
+    }
+  }
+
   render() {
     return (
       <main className="feed">
 
+        {this.renderExloreHeading()}
         {this.renderProfileInfo()}
 
 

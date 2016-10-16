@@ -1,8 +1,9 @@
 import React from "react";
 import Likes from "./likes";
-import Comments from "./comments"
+import Comments from "./comments";
 import CommentForm from "./comment_form";
 import LikeButton from "./like_button";
+import Canvas from "./canvas";
 import { Link } from "react-router";
 
 
@@ -26,23 +27,23 @@ const Post = ({props}) => {
     post_id: post.id
   };
 
-  const renderDrawing = () => {
-    // debugger
-    const allCells = [];
-
-    if (post.drawing) {
-
-      for (let i = 0; i < 2500; i++) {
-        allCells.push(<li
-          className={"pixl gridlines-off"}
-          key={i}
-          value={i}
-          id={i}
-          style={{backgroundColor: `${post.drawing[i]}`}}></li>)
-      }
-      return allCells;
-    }
-  }
+  // const renderDrawing = () => {
+  //
+  //   const allCells = [];
+  //
+  //   if (post.drawing) {
+  //
+  //     for (let i = 0; i < 2500; i++) {
+  //       allCells.push(<li
+  //         className={"pixl gridlines-off"}
+  //         key={i}
+  //         value={i}
+  //         id={i}
+  //         style={{backgroundColor: `${post.drawing[i]}`}}></li>)
+  //     }
+  //     return allCells;
+  //   }
+  // }
 
 
   return (
@@ -53,7 +54,7 @@ const Post = ({props}) => {
             {post.user.username}
           </Link>
         </h3>
-        <ul className="canvas group">{renderDrawing()}</ul>
+        <Canvas drawing={post.drawing}/>
         <section className="image-info">
           {renderLikes()}
           <Comments post={post} />
