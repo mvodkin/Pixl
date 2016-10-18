@@ -39,7 +39,6 @@ export default class Posts extends React.Component {
 
 
   allPosts() {
-
     if (this.props.posts.length) {
       return this.props.posts.map((post, idx) => {
 
@@ -47,7 +46,7 @@ export default class Posts extends React.Component {
           createComment: this.props.createComment,
           likePost: this.props.likePost,
           unlikePost: this.props.unlikePost,
-          currentUser,
+          currentUser: this.props.currentUser,
           post
         }
 
