@@ -4,7 +4,6 @@ class Canvas extends React.Component {
 
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {

@@ -162,10 +162,10 @@ class Canvas extends React.Component {
       const oldColor = pixls[idx];
       pixls[idx] = brushColor;
 
-      if (pixls[idx + 1] === oldColor) {
+      if (pixls[idx + 1] === oldColor && (idx + 1) % 50 !== 0) {
         pixls = paint(idx + 1, pixls, brushColor);
       }
-      if (pixls[idx - 1] === oldColor) {
+      if (pixls[idx - 1] === oldColor && idx % 50 !== 0) {
         pixls = paint(idx - 1, pixls, brushColor);
       }
       if (pixls[idx - 50] === oldColor) {
@@ -222,9 +222,7 @@ class Canvas extends React.Component {
                     color={this.state.brushColor}
                     onChangeComplete={this.setBrushColor}/>
                 </div> : null }
-              <li className="canvas-button" onClick={this.setBackgroundColor}>
-                Set background
-              </li>
+
               <li className="canvas-button" onClick={this.toggleGridlines}>
                 Toggle Gridlines
               </li>
@@ -251,3 +249,7 @@ class Canvas extends React.Component {
 }
 
 export default Canvas;
+
+// <li className="canvas-button" onClick={this.setBackgroundColor}>
+//   Set background
+// </li>
