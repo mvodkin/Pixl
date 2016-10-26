@@ -65,6 +65,7 @@ class Canvas extends React.Component {
   setBrushColor(color) {
     this.setState({
       brushColor: color.hex,
+      selectedColor: color.hex,
       eraserToolEnabled: false
     });
   }
@@ -141,7 +142,7 @@ class Canvas extends React.Component {
 
   togglePaintBucketTool() {
     this.setState({
-      brushColor: this.state.brushColor,
+      brushColor: this.state.selectedColor,
       eraserToolEnabled: false,
       brushToolEnabled: false,
       paintBucket: true
@@ -160,7 +161,7 @@ class Canvas extends React.Component {
 
   paintBucket(idx, pixls) {
     idx = parseInt(idx);
-    
+
     function paint(idx, pixls, brushColor) {
       const oldColor = pixls[idx];
       pixls[idx] = brushColor;
