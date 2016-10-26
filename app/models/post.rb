@@ -47,12 +47,10 @@ class Post < ActiveRecord::Base
   end
 
   def self.feed(current_user)
-
     Post.joins(:author)
       .joins("LEFT OUTER JOIN follows ON followee_id = users.id")
       .where("follows.follower_id = :id OR posts.user_id = :id", id: current_user.id)
       .order("posts.id DESC").select("DISTINCT ON (posts.id) posts.*")
-
   end
 
 

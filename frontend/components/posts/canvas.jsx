@@ -23,7 +23,6 @@ class Canvas extends React.Component {
         ctx.fillRect(x, y, 14, 14)
       }
     }
-
   }
 
   render() {
