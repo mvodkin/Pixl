@@ -50,5 +50,20 @@ paintBucket(idx, pixels) {
 
 The `idx` parameter is the index of the clicked square and `pixels` parameter is the duplicated array of colors, taken from the state.
 
+On the back end the drawings are stored in a column in the `posts` table as an array.
+
+<h3>Feed</h3>
+
+The index page is a feed which displays the most recent posts by the current user as well as posts by users they follow. To fetch the feed I used a custom ActiveRecord query that looks like this:
+
+```ruby
+def feed
+  Post.joins(:author)
+    .joins("LEFT OUTER JOIN follows ON followee_id = users.id")
+    .where("follows.follower_id = :id OR posts.user_id = :id", id: self.id)
+    .order("posts.id DESC").select("DISTINCT ON (posts.id) posts.*")
+end
+```
+
 
 <img src="docs/screenshots/CMYn90qmml.gif"><img>
