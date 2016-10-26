@@ -19,14 +19,8 @@ class Canvas extends React.Component {
       description: ""
     };
 
-    // this.brushEnabled = false;
-
-    // this.selectedColor = "#000000";
-
-    this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.handleDrag = this.handleDrag.bind(this);
     this.setBrushColor = this.setBrushColor.bind(this);
-    // this.enableBrush = this.enableBrush.bind(this);
-    // this.disableBrush = this.disableBrush.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.toggleFullColorPicker = this.toggleFullColorPicker.bind(this);
     this.setBackgroundColor = this.setBackgroundColor.bind(this);
@@ -41,24 +35,23 @@ class Canvas extends React.Component {
 
   }
 
-  handleMouseDown(e) {
-
+  handleDrag(e) {
     if (e.buttons === 1) {
       const idx = e.currentTarget.id;
-      let newPixls = this.state.pixls.slice();
-      newPixls[idx] = this.state.brushColor;
-      this.setState({ pixls: newPixls });
+      let dupPixls = this.state.pixls.slice();
+      dupPixls[idx] = this.state.brushColor;
+      this.setState({ pixls: dupPixls });
     }
   }
 
   handleClick(e) {
     const idx = e.currentTarget.id;
-    let newPixls = this.state.pixls.slice();
+    let dupPixls = this.state.pixls.slice();
     if (this.state.paintBucket) {
-      this.paintBucket(idx, newPixls);
+      this.paintBucket(idx, dupPixls);
     } else {
-      newPixls[idx] = this.state.brushColor;
-      this.setState({ pixls: newPixls });
+      dupPixls[idx] = this.state.brushColor;
+      this.setState({ pixls: dupPixls });
     }
   }
 
@@ -84,10 +77,9 @@ class Canvas extends React.Component {
       allCells.push(<li
         className={`pixl ${this.state.pixlClass}`}
         key={i}
-        value={i}
         id={i}
         style={{backgroundColor: `${this.state.pixls[i]}`}}
-        onMouseOver={this.handleMouseDown}
+        onMouseOver={this.handleDrag}
         onClick={this.handleClick}></li>)
     }
     return allCells;
@@ -172,10 +164,10 @@ class Canvas extends React.Component {
       if (pixls[idx - 1] === oldColor && idx % 50 !== 0) {
         pixls = paint(idx - 1, pixls, brushColor);
       }
-      if (pixls[idx - 50] === oldColor) {
+      if (pixls[idx - 50] === oldColor) { //look at the adjacent square to the top
         pixls = paint(idx - 50, pixls, brushColor);
       }
-      if (pixls[idx + 50] === oldColor) {
+      if (pixls[idx + 50] === oldColor) { //loot at the adjacent square to the bottom
         pixls = paint(idx + 50, pixls, brushColor);
       }
       return pixls;
