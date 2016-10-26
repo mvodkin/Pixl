@@ -21,6 +21,8 @@ class Canvas extends React.Component {
 
     // this.brushEnabled = false;
 
+    // this.selectedColor = "#000000";
+
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.setBrushColor = this.setBrushColor.bind(this);
     // this.enableBrush = this.enableBrush.bind(this);
@@ -125,6 +127,7 @@ class Canvas extends React.Component {
       paintBucket: false,
       selectedColor: this.state.brushColor
     })
+
   }
 
   enableBrushTool() {
@@ -138,7 +141,7 @@ class Canvas extends React.Component {
 
   togglePaintBucketTool() {
     this.setState({
-      brushColor: this.state.selectedColor,
+      brushColor: this.state.brushColor,
       eraserToolEnabled: false,
       brushToolEnabled: false,
       paintBucket: true
@@ -156,8 +159,8 @@ class Canvas extends React.Component {
   }
 
   paintBucket(idx, pixls) {
-
     idx = parseInt(idx);
+    
     function paint(idx, pixls, brushColor) {
       const oldColor = pixls[idx];
       pixls[idx] = brushColor;
@@ -176,9 +179,9 @@ class Canvas extends React.Component {
       }
       return pixls;
     }
+
     paint(idx, pixls, this.state.brushColor)
     this.setState({pixls});
-
   }
 
   setDescription() {
