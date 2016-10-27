@@ -101,7 +101,7 @@ The `comments` table, like the `follows` and `likes` tables, functions as an ass
 
 <h2>Future Features</h2>
 
-<h3>Undo/redo<h3>
+<h3>Undo/redo</h3>
 
 Using Redux, the store will hold past, present and future states representing the drawing changes made to the drawing. Undoing will push the present state to the top of the future state stack and will take the last state from the top of the past state and make it the present state. Redoing will perform the action in reverse. The undo/redo state will look similar to this example from the Redux docs:
 
