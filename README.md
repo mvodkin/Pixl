@@ -49,6 +49,8 @@ paintBucket(idx, pixels) {
 
 ```
 
+I used the <a href="https://github.com/casesandberg/react-color/">react-color<a> library for the color pickers and altered the built-in CSS to fit my needs.
+
 On the back end the drawings are stored in a column in the `posts` table as an array.
 
 <h3>Feed</h3>
@@ -64,7 +66,7 @@ def feed
 end
 ```
 
-To display the drawings in the feed, I used the following function to render the drawings to an HTML Canvas:
+To display drawings after they are created, I used the following function to render the drawings to an HTML Canvas:
 
 ```javascript
 updateCanvas(drawing) {
@@ -78,15 +80,24 @@ updateCanvas(drawing) {
     ctx.fillStyle = drawing[i];
     ctx.fillRect(x, y, 14, 14)
   }
-
 }
 ```
 
-<h3>Likes and Comments</h3>
+<h2>Likes, Comments and Follows</h2>
 
+<h3>Likes</h3>
 
+The `likes` table has columns for `id`, `liker_id` and `liked_post_id` allowing, for an associative relationship between likers and liked posts.
 
 <img src="docs/screenshots/CMYn90qmml.gif"><img>
+
+<h3>Follows</h3>
+
+The `follows` table works in the same way and has a `follower_id` column and a `followee_id` column. The `follow` model uses `validates_uniqueness_of :follower_id, scope: :followee_id` to prevent multiple follows of the same user. The likes table has a similar validation to prevent a single user from liking the same post multiple times.
+
+<h3>Comments</h3>
+
+The `comments` table, like the `follows` and `likes` tables, functions as an associative table but also stores the comment body.
 
 <h2>Future Features</h2>
 

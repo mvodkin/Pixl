@@ -11,47 +11,47 @@ export const REMOVE_LIKE = "REMOVE_LIKE";
 export const createPost = (post) => ({
   type: CREATE_POST,
   post
-})
+});
 
 export const requestPosts = (userId, explore) => ({
   type: REQUEST_POSTS,
   userId,
   explore
-})
+});
 
 export const receivePosts = (posts) => ({
   type: RECEIVE_POSTS,
   posts
-})
+});
 
 export const createComment = (comment) => ({
   type: CREATE_COMMENT,
   comment
-})
+});
 
 export const receiveComment = (comment) => ({
   type: RECEIVE_COMMENT,
   comment
-})
+});
 
 export const likePost = (post_id) => ({
   type: LIKE_POST,
   post_id
-})
+});
 
 export const unlikePost = (post_id) => ({
   type: UNLIKE_POST,
   post_id
-})
+});
 
 export const receiveLike = (post_id, currentUser) => ({
   type: RECEIVE_LIKE,
   post_id,
   currentUser
-})
+});
 
 export const removeLike = (post_id, currentUser) => ({
   type: REMOVE_LIKE,
   post_id,
   currentUser
-})
+});
