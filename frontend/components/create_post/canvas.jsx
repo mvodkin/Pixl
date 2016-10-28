@@ -225,7 +225,6 @@ class Canvas extends React.Component {
               <li className="canvas-button" onClick={this.enableEraserTool}>Eraser</li>
               <li className="canvas-button" onClick={this.enableBrushTool}>Brush</li>
               <li className="canvas-button" onClick={this.togglePaintBucketTool}>Paint Bucket</li>
-              <li><input className="canvas-button" type="color"></input></li>
           </ul>
 
           <form onSubmit={this.handleSubmit} className="new-post-submit-form">
