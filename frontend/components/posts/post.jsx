@@ -27,25 +27,6 @@ const Post = ({props}) => {
     post_id: post.id
   };
 
-  // const renderDrawing = () => {
-  //
-  //   const allCells = [];
-  //
-  //   if (post.drawing) {
-  //
-  //     for (let i = 0; i < 2500; i++) {
-  //       allCells.push(<li
-  //         className={"pixl gridlines-off"}
-  //         key={i}
-  //         value={i}
-  //         id={i}
-  //         style={{backgroundColor: `${post.drawing[i]}`}}></li>)
-  //     }
-  //     return allCells;
-  //   }
-  // }
-
-
   return (
     <li>
       <article className="post">
@@ -67,7 +48,5 @@ const Post = ({props}) => {
     </li>
   );
 };
-
-// <img className="post-image" src={post.img_url}></img>
 
 export default Post;

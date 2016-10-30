@@ -87,7 +87,6 @@ export default class Posts extends React.Component {
         {this.renderExloreHeading()}
         {this.renderProfileInfo()}
 
-
           <div className="posts">
             <ul>{this.allPosts()}</ul>
           </div>

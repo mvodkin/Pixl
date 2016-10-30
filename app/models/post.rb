@@ -53,5 +53,4 @@ class Post < ActiveRecord::Base
       .order("posts.id DESC").select("DISTINCT ON (posts.id) posts.*")
   end
 
-
 end

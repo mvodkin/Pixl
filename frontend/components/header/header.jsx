@@ -34,7 +34,3 @@ const Header = ({logout, currentUser}) => {
   );
 };
 export default Header;
-
-// <li className="nav-icon"><img src={window.images.camera}></img></li>
-// <li className="nav-icon"><img src={window.images.heart}></img></li>
-// <li className="nav-icon"><img src={window.images.invader}></img></li>
