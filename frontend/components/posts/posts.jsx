@@ -4,7 +4,6 @@ import Profile from "../profile/profile";
 import Infinite from "react-infinite";
 import Spinner from "react-spinkit";
 
-
 export default class Posts extends React.Component {
 
   constructor(props) {
@@ -61,7 +60,6 @@ export default class Posts extends React.Component {
         spinnerName="cube-grid"
         noFadeIn />
     }
-
   }
 
   renderProfileInfo() {

@@ -63,14 +63,6 @@ class Canvas extends React.Component {
     });
   }
 
-  // enableBrush() {
-  //   this.brushEnabled = true;
-  // }
-  //
-  // disableBrush() {
-  //   this.brushEnabled = false;
-  // }
-
   renderPixls() {
     const allCells = [];
     for (let i = 0; i < 2500; i++) {
@@ -245,7 +237,3 @@ class Canvas extends React.Component {
 }
 
 export default Canvas;
-
-// <li className="canvas-button" onClick={this.setBackgroundColor}>
-//   Set background
-// </li>

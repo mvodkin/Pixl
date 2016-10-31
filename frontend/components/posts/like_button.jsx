@@ -32,10 +32,6 @@ class LikeButton extends React.Component {
     this.setState({liked: !this.state.liked});
   }
 
-  // buttonType() {
-  //   return this.state.liked ? <div className="unlike"></div> : <div className="like"></div>
-  // }
-
   buttonClass() {
     return this.state.liked ? "like-button unlike" : "like-button like"
   }
