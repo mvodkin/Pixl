@@ -1,8 +1,12 @@
 import React from "react";
+import Modal from "react-modal";
 
 class EditProfile extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+
+    }
   }
 
   renderErrors() {
@@ -21,34 +25,43 @@ class EditProfile extends React.Component {
 
   render() {
     return (
-      <section className ="edit-profile">
+      <div>
 
-        <div className="login-form-container">
-          <h1>Edit Profile</h1>
-  				<form onSubmit={this.handleSubmit} className="login-form-box">
+        <div
+          className="edit-profile"
+          disabled={this.props.disabled}>
+            Edit Profile
+          </div>
 
-  					{ this.renderErrors() }
+        <Modal className ="edit-profile">
 
-						<input type="text"
-							value={this.props.username}
-							className="login-input"
-              id="username-input"/>
+          <div className="login-form-container">
+            <h1>Edit Profile</h1>
+    				<form onSubmit={this.handleSubmit} className="login-form-box">
 
-            <input type="text"
-              value={this.props.username}
-              className="login-input"
-              id="email-input"/>
+    					{ this.renderErrors() }
 
-            <textarea
-              className="login-input"
-              id="description-input">{this.props.profile_desc}</textarea>
+  						<input type="text"
+  							value={this.props.username}
+  							className="login-input"
+                id="username-input"/>
 
-            <input type="submit"
-              value="Update profile"/>
+              <input type="text"
+                value={this.props.username}
+                className="login-input"
+                id="email-input"/>
 
-  			</div>
+              <textarea
+                className="login-input"
+                id="description-input">{this.props.profile_desc}</textarea>
 
-      </section>
+              <input type="submit"
+                value="Update profile"/>
+
+    			</div>
+
+        </Modal>
+      </div>
     );
   }
 

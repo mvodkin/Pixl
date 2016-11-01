@@ -1,5 +1,6 @@
 import React from "react";
 import FollowButton from "./follow_button";
+import CanvasComponent from "../posts/canvas";
 
 class Profile extends React.Component {
 
@@ -7,9 +8,24 @@ class Profile extends React.Component {
     super(props)
   }
 
-  renderProfilePic() {
-    if (this.props.profile.profile_pic) {
-      return <img className="profile-pic" src={this.props.profile.profile_pic.img_url}></img>
+  componentWillReceiveProps(newProps) {
+    if (newProps.profile.profile_pic) {
+      this.updateCanvas(newProps.profile.profile_pic.drawing, 2)
+    }
+  }
+
+  updateCanvas(drawing, pixelSize) {
+
+    if (drawing) {
+      const ctx = this.refs.canvas.getContext('2d');
+      let x, y;
+
+      for (let i = 0; i < drawing.length; i++) {
+        x = (i % 50) * pixelSize;
+        y = Math.floor(i / 50) * pixelSize;
+        ctx.fillStyle = drawing[i];
+        ctx.fillRect(x, y, pixelSize, pixelSize)
+      }
     }
   }
 
@@ -35,7 +51,7 @@ class Profile extends React.Component {
 
     return (
       <section className ="profile">
-        {this.renderProfilePic()}
+        <canvas ref="canvas" className="profile-pic" width={100} height={100}></canvas>
         <div className="profile-info">
           <div className="top-row">
             <h1 className="username">{username}</h1>

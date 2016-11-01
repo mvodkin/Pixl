@@ -26,6 +26,7 @@
     "react-color": "^2.3.3",
     "react-dom": "^15.3.2",
     "react-infinite": "^0.10.0",
+    "react-modal": "^1.5.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "react-spinkit": "^1.1.11",

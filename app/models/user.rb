@@ -48,6 +48,11 @@ class User < ActiveRecord::Base
     through: :followees,
     source: :posts
 
+  # belongs_to :profile_pic,
+  #   class_name: "Post",
+  #   primary_key: :id,
+  #   foreign_key: :profile_pic_id
+
   def num_followers
     followers.count(:id) || 0
   end
@@ -61,7 +66,7 @@ class User < ActiveRecord::Base
   end
 
   def profile_pic
-    Post.select(:img_url).where(id: self.profile_pic_id).first
+    Post.select(:drawing).where(id: self.profile_pic_id).first
   end
 
   def following?

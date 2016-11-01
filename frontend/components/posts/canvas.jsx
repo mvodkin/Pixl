@@ -7,20 +7,20 @@ class Canvas extends React.Component {
   }
 
   componentDidMount() {
-    this.updateCanvas(this.props.drawing);
+    this.updateCanvas(this.props.drawing, 14);
   }
 
-  updateCanvas(drawing) {
+  updateCanvas(drawing, pixelSize) {
 
     if (drawing) {
       const ctx = this.refs.canvas.getContext('2d');
       let x, y;
 
       for (let i = 0; i < drawing.length; i++) {
-        x = (i % 50) * 14;
-        y = Math.floor(i / 50) * 14;
+        x = (i % 50) * pixelSize;
+        y = Math.floor(i / 50) * pixelSize;
         ctx.fillStyle = drawing[i];
-        ctx.fillRect(x, y, 14, 14)
+        ctx.fillRect(x, y, pixelSize, pixelSize)
       }
     }
   }

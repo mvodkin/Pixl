@@ -1,4 +1,5 @@
 import React from "react";
+import EditProfile from "./edit_profile"
 
 class FollowButton extends React.Component {
   constructor(props) {
