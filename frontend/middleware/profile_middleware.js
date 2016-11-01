@@ -1,17 +1,21 @@
-import { fetchProfile, createFollow, destroyFollow } from "../util/user_api_util";
+import { fetchProfile, createFollow, destroyFollow, updateProfile } from "../util/user_api_util";
 import {
   REQUEST_PROFILE,
   REQUEST_FOLLOW,
   REQUEST_UNFOLLOW,
+  UPDATE_PROFILE,
+  requestUpdateProfile,
   receiveProfile,
   receiveFollow,
   receiveUnfollow
 } from "../actions/profile_actions";
 
 const ProfileMiddleware = ({getState, dispatch}) => next => action => {
+
   const fetchSuccessCallback = (profile) => dispatch(receiveProfile(profile));
   const followSuccessCallback = (follower) => dispatch(receiveFollow(follower));
   const unfollowSuccessCallback = (follower) => dispatch(receiveUnfollow(follower));
+
   switch (action.type) {
     case REQUEST_PROFILE:
       fetchProfile(
@@ -20,6 +24,12 @@ const ProfileMiddleware = ({getState, dispatch}) => next => action => {
         error => console.log(error)
       );
       return next(action);
+    case UPDATE_PROFILE:
+      updateProfile(
+        action.profile,
+        fetchSuccessCallback,
+        error => console.log(error)
+      );
     case REQUEST_FOLLOW:
       createFollow(
         action.userId,

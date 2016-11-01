@@ -1,5 +1,6 @@
 export const REQUEST_PROFILE = "REQUEST_PROFILE";
 export const RECEIVE_PROFILE = "RECEIVE_PROFILE";
+export const UPDATE_PROFILE = "UPDATE_PROFILE"
 export const REQUEST_FOLLOW = "REQUEST_FOLLOW";
 export const RECEIVE_FOLLOW = "RECEIVE_FOLLOW";
 export const RECEIVE_UNFOLLOW = "RECEIVE_UNFOLLOW";
@@ -14,6 +15,11 @@ export const receiveProfile = (profile) => ({
   type: RECEIVE_PROFILE,
   profile
 });
+
+export const requestUpdateProfile = (profile) => ({
+  type: UPDATE_PROFILE,
+  profile
+})
 
 export const requestFollow = (userId) => ({
   type: REQUEST_FOLLOW,
