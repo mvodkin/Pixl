@@ -72,3 +72,44 @@ ul.profile-stats > li {
   margin-top: 7px;
   margin-left: 20px;
 }
+
+.edit-profile-modal {
+  text-align: center;
+  background-color: black;
+  // position: absolute;
+  font-family: 'VT323', monospace;
+  color: white;
+  margin-top: 100px;
+  width: 500px;
+  margin: 0 auto;
+  // top: 100px;
+  // bottom: 100px;
+  // right: 100px;
+  // left: 100px;
+}
+
+.edit-profile-modal h1 {
+  font-size: 36px;
+  padding: 20px 20px;
+}
+
+.edit-profile-form input[type=text] {
+  background-color: white;
+  color: black;
+  display: inherit;
+  margin-bottom: 10px;
+}
+
+.edit-profile-form textarea {
+  background-color: white;
+  color: black;
+  font-size: 14px;
+}
+
+.edit-profile-form input[type=submit] {
+  padding: 15px 15px;
+}
+
+// .ReactModal__Content {
+//   background-color: black;
+// }

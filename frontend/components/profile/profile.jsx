@@ -35,7 +35,10 @@ class Profile extends React.Component {
       profileId: this.props.profile.id,
       followers: this.props.profile.followers,
       requestFollow: this.props.requestFollow,
-      requestUnfollow: this.props.requestUnfollow
+      requestUnfollow: this.props.requestUnfollow,
+      username: this.props.currentUser.username,
+      email: this.props.currentUser.email,
+      profileDesc: this.props.currentUser.profile_desc
     }
   }
 

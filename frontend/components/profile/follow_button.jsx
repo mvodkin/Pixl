@@ -39,11 +39,7 @@ class FollowButton extends React.Component {
   button() {
     if (this.props.currentUserId === this.props.profileId) {
       return (
-        <div
-          className="edit-profile"
-          disabled={this.props.disabled}>
-            Edit Profile
-          </div>
+        <EditProfile props={this.props} />
       )
     } else {
 

@@ -80,7 +80,7 @@ export default class Posts extends React.Component {
 
   render() {
     return (
-      <main className="feed">
+      <main id="feed">
 
         {this.renderExloreHeading()}
         {this.renderProfileInfo()}
