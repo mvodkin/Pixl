@@ -46,11 +46,12 @@ export default class Posts extends React.Component {
           likePost: this.props.likePost,
           unlikePost: this.props.unlikePost,
           currentUser: this.props.currentUser,
+          location: this.props.location,
           post
         }
 
         return (
-          <Post key={idx} props={props} />
+          <Post key={idx} props={this.props} post={post} />
         )
 
       });

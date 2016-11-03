@@ -32,7 +32,13 @@
   padding: 15px 25px;
   border-bottom: 1px solid #efefef;
   font-weight: bold;
+  display: flex;
+  flex-direction: row;
 }
+
+// .post-user > h3 {
+//
+// }
 
 .image-info {
   padding: 0 25px;
@@ -116,4 +122,12 @@ img.post-image {
 
 .cube {
   background: #FF0078, !important;
+}
+
+.edit-post-button {
+  align-self: flex-end;
+  margin-left: 472px;
+  padding: 3px 10px;
+  background-color: #999;
+  color: white;
 }

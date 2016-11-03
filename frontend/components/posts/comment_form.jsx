@@ -2,11 +2,11 @@ import React from "react";
 
 class CommentForm extends React.Component {
 
-  constructor(props) {
+  constructor(props, post) {
     super(props);
     this.state = {
       body: "",
-      post_id: this.props.props.post.id
+      post_id: this.props.post.id
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
