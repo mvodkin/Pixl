@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 Modal.setAppElement("#edit-profile");
 
 class EditProfile extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -37,8 +38,11 @@ class EditProfile extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
+  handleSubmit() {
+
+  }
+
   render() {
-    debugger
     return (
       <div>
 
@@ -55,27 +59,38 @@ class EditProfile extends React.Component {
             <section className="edit-profile-form">
 
               <h1>Edit Profile</h1>
-      				<form onSubmit={this.handleSubmit} className="login-form-box">
+      				<form onSubmit={this.handleSubmit} className="edit-profile-box">
 
       					{ this.renderErrors() }
 
-    						<input type="text"
+                <div>
+    						  <aside>Username</aside>
+                  <input type="text"
     							defaultValue={this.props.props.username}
     							className="login-input"
                   id="username-input"/>
+                </div>
 
-                <input type="text"
+                <div>
+                  <aside>Email</aside>
+                  <input type="text"
                   defaultValue={this.props.props.email}
                   className="login-input"
                   id="email-input"/>
+                </div>
 
-                <textarea
+                <div>
+                  <aside>Bio</aside>
+                  <textarea
                   className="login-input"
                   id="description-input"
                   defaultValue={this.props.props.profileDesc}></textarea>
+                </div>
 
-                <input type="submit"
-                  value="Update profile"/>
+                <div className="submit-edit">
+                  <input type="submit"
+                    value="Update profile"/>
+                </div>
 
               </form>
             </section>

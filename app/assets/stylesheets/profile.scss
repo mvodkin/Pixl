@@ -76,16 +76,16 @@ ul.profile-stats > li {
 .edit-profile-modal {
   text-align: center;
   background-color: black;
-  // position: absolute;
+  position: absolute;
   font-family: 'VT323', monospace;
   color: white;
   margin-top: 100px;
-  width: 500px;
+  width: 550px;
   margin: 0 auto;
-  // top: 100px;
-  // bottom: 100px;
-  // right: 100px;
-  // left: 100px;
+  top: 100px;
+  right: 150px;
+  left: 150px;
+  box-shadow: 5px 5px #FF0078;
 }
 
 .edit-profile-modal h1 {
@@ -98,16 +98,62 @@ ul.profile-stats > li {
   color: black;
   display: inherit;
   margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.edit-profile-form input[type=text]:focus {
+  color: #FF0078;
 }
 
 .edit-profile-form textarea {
   background-color: white;
   color: black;
-  font-size: 14px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.edit-profile-form textarea:focus {
+  background-color: white;
 }
 
 .edit-profile-form input[type=submit] {
-  padding: 15px 15px;
+  padding: 10px 10px;
+  background-color: #FF0078;
+  padding: 0 11px;
+  padding-top: 4px;
+  padding-bottom: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.edit-profile-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-profile-box > div {
+  float: right;
+  // margin: 0 20px;
+  margin: 0 46px;
+  align-self: flex-end;
+}
+
+.edit-profile-form > div:last-child {
+  margin-bottom: 30px;
+}
+
+.edit-profile-form aside {
+  float: left;
+  margin-right: 30px;
+
+  // margin-right:
+}
+
+div.submit-edit {
+  margin-bottom: 20px;
+  margin-right: 0;
+  align-self: flex-start;
+  margin-left: 134px;
 }
 
 // .ReactModal__Content {

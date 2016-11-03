@@ -27,6 +27,10 @@ const Post = ({props}) => {
     post_id: post.id
   };
 
+  // const editButton = () => {
+  //
+  // }
+
   return (
     <li>
       <article className="post">
