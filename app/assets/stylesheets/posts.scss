@@ -126,8 +126,10 @@ img.post-image {
 
 .edit-post-button {
   align-self: flex-end;
-  margin-left: 472px;
+  // float: right;
+  margin-left: 380px;
   padding: 3px 10px;
   background-color: #999;
   color: white;
+  cursor: pointer;
 }

@@ -28,11 +28,34 @@ const Post = ({props, post}) => {
   };
 
   const editButton = () => {
+
     if (props.location.pathname.includes("user")) {
       if (parseInt(props.params.userId) === props.currentUser.id) {
         return (
           <h3 className="edit-post-button">
             <Link to={`posts/edit/${post.id}`}>Edit Post</Link>
+          </h3>
+        );
+      }
+    }
+  }
+
+  const handleSetProfilePic = () => {
+    let updatedCurrentUser = {
+      id: props.currentUser.id,
+      profile_pic_id: post.id
+    }
+
+    props.requestUpdateProfile(updatedCurrentUser);
+    window.scrollTo(0, 0);
+  }
+
+  const setProfilePic = () => {
+    if (props.location.pathname.includes("user")) {
+      if (parseInt(props.params.userId) === props.currentUser.id) {
+        return (
+          <h3 className="edit-post-button">
+            <div onClick={handleSetProfilePic}>Set as profile pic</div>
           </h3>
         );
       }
@@ -50,7 +73,7 @@ const Post = ({props, post}) => {
             </Link>
           </h3>
 
-          {editButton()}
+          {setProfilePic()}
 
         </section>
 

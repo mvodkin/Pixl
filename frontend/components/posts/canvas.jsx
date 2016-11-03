@@ -10,6 +10,10 @@ class Canvas extends React.Component {
     this.updateCanvas(this.props.drawing, 14);
   }
 
+  componentWillReceiveProps(newProps) {
+    this.updateCanvas(newProps.drawing, 14);
+  }
+
   updateCanvas(drawing, pixelSize) {
 
     if (drawing) {

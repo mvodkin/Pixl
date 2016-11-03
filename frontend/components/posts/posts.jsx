@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import Post from "./post";
 import Profile from "../profile/profile";
 import Infinite from "react-infinite";
@@ -16,7 +17,7 @@ export default class Posts extends React.Component {
       this.props.requestPosts();
     } else if (this.props.location.pathname === "/explore") {
       this.props.requestPosts(null, true)
-    } else {
+    } else if (this.props.location.pathname.includes("/user")) {
       const userId = this.props.params.userId;
       this.props.requestPosts(userId);
       this.props.requestProfile(userId);
@@ -24,16 +25,21 @@ export default class Posts extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
+
     if (newProps.location.pathname === this.props.location.pathname) return;
     if (newProps.location.pathname === "/") {
       newProps.requestPosts();
     } else if (newProps.location.pathname === "/explore") {
-      newProps.requestPosts(null, true)
-    } else {
+      newProps.requestPosts(null, true);
+    } else if (newProps.location.pathname.includes("/user")) {
       const userId = newProps.params.userId;
       newProps.requestPosts(userId);
       newProps.requestProfile(userId);
     }
+    // const node = ReactDOM.findDOMNode(this)
+    // node.scrollTop = 0;
+    // debugger
+    window.scrollTo(0, 0);
   }
 
 
@@ -41,14 +47,14 @@ export default class Posts extends React.Component {
     if (this.props.posts.length) {
       return this.props.posts.map((post, idx) => {
 
-        let props = {
-          createComment: this.props.createComment,
-          likePost: this.props.likePost,
-          unlikePost: this.props.unlikePost,
-          currentUser: this.props.currentUser,
-          location: this.props.location,
-          post
-        }
+        // let props = {
+        //   createComment: this.props.createComment,
+        //   likePost: this.props.likePost,
+        //   unlikePost: this.props.unlikePost,
+        //   currentUser: this.props.currentUser,
+        //   location: this.props.location,
+        //   post
+        // }
 
         return (
           <Post key={idx} props={this.props} post={post} />

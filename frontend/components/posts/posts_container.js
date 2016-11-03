@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Posts from "./posts";
-import { requestProfile, requestFollow, requestUnfollow } from "../../actions/profile_actions";
+import { requestProfile, requestFollow, requestUnfollow, requestUpdateProfile } from "../../actions/profile_actions";
 import {
   requestPosts,
   createComment,
@@ -21,7 +21,8 @@ const mapDispatchToProps = (dispatch) => ({
   unlikePost: (postId) => dispatch(unlikePost(postId)),
   requestProfile: (userId) => dispatch(requestProfile(userId)),
   requestFollow: (userId) => dispatch(requestFollow(userId)),
-  requestUnfollow: (userId) => dispatch(requestUnfollow(userId))
+  requestUnfollow: (userId) => dispatch(requestUnfollow(userId)),
+  requestUpdateProfile: (user) => dispatch(requestUpdateProfile(user))
 });
 
 export default connect(
