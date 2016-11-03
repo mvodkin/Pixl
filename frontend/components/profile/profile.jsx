@@ -9,7 +9,7 @@ class Profile extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    debugger
+
     if (newProps.profile.profile_pic) {
       this.updateCanvas(newProps.profile.profile_pic.drawing, 2)
     }
