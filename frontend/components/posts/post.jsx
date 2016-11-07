@@ -9,8 +9,6 @@ import { Link } from "react-router";
 
 const Post = ({props, post}) => {
 
-  // const {requestPosts, location } = props;
-
   const renderLikes = () => {
     if (post.num_likes > 0) {
       return (

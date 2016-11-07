@@ -36,9 +36,7 @@ export default class Posts extends React.Component {
       newProps.requestPosts(userId);
       newProps.requestProfile(userId);
     }
-    // const node = ReactDOM.findDOMNode(this)
-    // node.scrollTop = 0;
-    // debugger
+
     window.scrollTo(0, 0);
   }
 
@@ -46,15 +44,6 @@ export default class Posts extends React.Component {
   allPosts() {
     if (this.props.posts.length) {
       return this.props.posts.map((post, idx) => {
-
-        // let props = {
-        //   createComment: this.props.createComment,
-        //   likePost: this.props.likePost,
-        //   unlikePost: this.props.unlikePost,
-        //   currentUser: this.props.currentUser,
-        //   location: this.props.location,
-        //   post
-        // }
 
         return (
           <Post key={idx} props={this.props} post={post} />
