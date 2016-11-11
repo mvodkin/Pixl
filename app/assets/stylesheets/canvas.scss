@@ -1,7 +1,9 @@
+h1.new-post-heading {
+  text-align: center;
+}
+
 .canvas {
   width: 700px;
-
-  // cursor: crosshair;
   user-drag: none;
   user-select: none;
   -moz-user-select: none;
@@ -19,8 +21,8 @@
   width: 13px;
   height: 13px;
   float: left;
-  border-left: 1px solid rgba(138, 138, 138, 0.1);//#efefef;
-  border-bottom: 1px solid rgba(138, 138, 138, 0.1);//#efefef;
+  border-left: 1px solid rgba(138, 138, 138, 0.1);
+  border-bottom: 1px solid rgba(138, 138, 138, 0.1);
   user-drag: none;
   user-select: none;
   -moz-user-select: none;
@@ -28,10 +30,6 @@
   -webkit-user-select: none;
   -ms-user-select: none;
 }
-
-// .pixl:hover {
-//   background: rgba(255, 0, 120, 0.3);
-// }
 
 .circle-picker {
   width: 100% !important;
@@ -57,19 +55,12 @@
   left: 5%;
 }
 
-.gridlines-on {
-  // border-style: dotted;
-}
-
 .gridlines-off {
   border-color: transparent;
 }
 
 .canvas-button {
   padding: 7px 7px;
-  // width: 150px;
-  // height: 150px;
-  // border-radius: 50%;
   background-color: black;
   color: white;
   float: left;

@@ -146,27 +146,27 @@ class Canvas extends React.Component {
   paintBucket(idx, pixls) {
     idx = parseInt(idx);
 
-    function paint(idx, pixls, brushColor) {
-      const oldColor = pixls[idx];
-      pixls[idx] = brushColor;
-
-      if (pixls[idx + 1] === oldColor && (idx + 1) % 50 !== 0) {
-        pixls = paint(idx + 1, pixls, brushColor);
-      }
-      if (pixls[idx - 1] === oldColor && idx % 50 !== 0) {
-        pixls = paint(idx - 1, pixls, brushColor);
-      }
-      if (pixls[idx - 50] === oldColor) { //look at the adjacent square to the top
-        pixls = paint(idx - 50, pixls, brushColor);
-      }
-      if (pixls[idx + 50] === oldColor) { //loot at the adjacent square to the bottom
-        pixls = paint(idx + 50, pixls, brushColor);
-      }
-      return pixls;
-    }
-
-    paint(idx, pixls, this.state.brushColor)
+    this.paint(idx, pixls, this.state.brushColor)
     this.setState({pixls});
+  }
+
+  paint(idx, pixls, brushColor) {
+    const oldColor = pixls[idx];
+    pixls[idx] = brushColor;
+
+    if (pixls[idx + 1] === oldColor && (idx + 1) % 50 !== 0) {
+      pixls = this.paint(idx + 1, pixls, brushColor);
+    }
+    if (pixls[idx - 1] === oldColor && idx % 50 !== 0) {
+      pixls = this.paint(idx - 1, pixls, brushColor);
+    }
+    if (pixls[idx - 50] === oldColor) { //look at the adjacent square to the top
+      pixls = this.paint(idx - 50, pixls, brushColor);
+    }
+    if (pixls[idx + 50] === oldColor) { //loot at the adjacent square to the bottom
+      pixls = this.paint(idx + 50, pixls, brushColor);
+    }
+    return pixls;
   }
 
   setDescription() {
