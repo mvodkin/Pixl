@@ -13,10 +13,10 @@ class FollowButton extends React.Component {
   }
 
   setFollowState(props) {
-    if (props.followers) {
+    if (props.profile.followers) {
       this.setState({ following: false, disabled: false })
-      props.followers.forEach(follower => {
-        if (follower.id === props.currentUserId) {
+      props.profile.followers.forEach(follower => {
+        if (follower.id === props.currentUser.id) {
           this.setState({ following: true });
         }
       });
@@ -29,15 +29,16 @@ class FollowButton extends React.Component {
 
   handleClick() {
     if (this.state.following) {
-      this.props.requestUnfollow(this.props.profileId);
+      this.props.requestUnfollow(this.props.profile.id);
     } else {
-      this.props.requestFollow(this.props.profileId);
+      this.props.requestFollow(this.props.profile.id);
     }
     this.setState({ disabled: true })
   }
 
   button() {
-    if (this.props.currentUserId === this.props.profileId) {
+    debugger
+    if (this.props.currentUser.id === this.props.profile.id) {
       return (
         <EditProfile props={this.props} />
       )
@@ -50,7 +51,7 @@ class FollowButton extends React.Component {
             disabled={this.props.disabled}
             onClick={this.handleClick}>
               Following
-            </div>
+          </div>
         )
       } else {
         return (

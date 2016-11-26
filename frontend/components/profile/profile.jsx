@@ -59,7 +59,7 @@ class Profile extends React.Component {
         <div className="profile-info">
           <div className="top-row">
             <h1 className="username">{username}</h1>
-            <FollowButton {...this.followButtonProps()} />
+            <FollowButton {...this.props} />
           </div>
           <div className="profile-stats-container group">
             <ul className="profile-stats group">

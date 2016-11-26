@@ -9,10 +9,15 @@ class EditProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      username: this.props.props.currentUser.username,
+      email: this.props.props.currentUser.email,
+      profile_desc: this.props.props.currentUser.profile_desc
     }
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.feed = document.getElementById("feed");
   }
 
@@ -38,8 +43,20 @@ class EditProfile extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    const user = {
+      username: this.state.username,
+      email: this.state.email,
+      profile_desc: this.state.profile_desc
+    };
+    debugger
+    this.props.props.requestUpdateProfile(user);
+    this.setState({modalIsOpen: false});
 
+  }
+
+  update(key) {
+    return e => this.setState({[key]: e.currentTarget.value });
   }
 
   render() {
@@ -66,17 +83,19 @@ class EditProfile extends React.Component {
                 <div>
     						  <aside>Username</aside>
                   <input type="text"
-    							defaultValue={this.props.props.username}
+    							defaultValue={this.state.username}
     							className="login-input"
-                  id="username-input"/>
+                  id="username-input"
+                  onChange={this.update("username")}/>
                 </div>
 
                 <div>
                   <aside>Email</aside>
                   <input type="text"
-                  defaultValue={this.props.props.email}
+                  defaultValue={this.state.email}
                   className="login-input"
-                  id="email-input"/>
+                  id="email-input"
+                  onChange={this.update("email")}/>
                 </div>
 
                 <div>
@@ -84,7 +103,8 @@ class EditProfile extends React.Component {
                   <textarea
                   className="login-input"
                   id="description-input"
-                  defaultValue={this.props.props.profileDesc}></textarea>
+                  defaultValue={this.state.profile_desc}
+                  onChange={this.update("profile_desc")}></textarea>
                 </div>
 
                 <div className="submit-edit">
