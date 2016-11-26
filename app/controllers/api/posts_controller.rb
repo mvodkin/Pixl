@@ -11,6 +11,28 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find(params.id)
+    if @post
+      render json: :show
+    else
+      render json: "Post not found", status: 422
+    end
+  end
+
+  def update
+    @post = Post.find(params.id)
+    if @post.update(post_params)
+      render json: :show
+    else
+      render json: @post.errors.full_messages, status: 422
+    end
+  end
+
+  def edit
+    show
+  end
+
   def index
     if params[:explore] == "true"
       @posts = Post.all.order("posts.id DESC").includes(:author, :likers, comments: :user)
