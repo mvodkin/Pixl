@@ -1,5 +1,8 @@
 export const REQUEST_POSTS = "REQUEST_POSTS";
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
+export const REQUEST_POST = "REQUEST_POST";
+export const RECEIVE_POST = "RECEIVE_POST";
+export const UPDATE_POST = "UPDATE_POST";
 export const CREATE_POST = "CREATE_POST";
 export const CREATE_COMMENT = "CREATE_COMMENT";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
@@ -17,6 +20,16 @@ export const requestPosts = (userId, explore) => ({
   type: REQUEST_POSTS,
   userId,
   explore
+});
+
+export const requestPost = (postId) => ({
+  type: REQUEST_POST,
+  postId
+});
+
+export const updatePost = (post) => ({
+  type: UPDATE_POST,
+  post
 });
 
 export const receivePosts = (posts) => ({

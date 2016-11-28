@@ -8,8 +8,27 @@ export const fetchPosts = (success, error, userId = null, explore = false) => {
   });
 }
 
+export const fetchPost = (success, error, postId) => {
+  $.ajax({
+    method: "GET",
+    url: "api/posts",
+    data: postId,
+    success,
+    error
+  })
+}
+
+export const updatePost = (success, error, post) => {
+  $.ajax({
+    method: "PATCH",
+    url: `api/posts/${post.id}`,
+    data: { post },
+    success,
+    error
+  })
+}
+
 export const createPost = (post, success, error) => {
-  debugger
   $.ajax({
     method: "POST",
     url: "api/posts",
