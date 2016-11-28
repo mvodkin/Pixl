@@ -1,5 +1,7 @@
 import {
   REQUEST_POSTS,
+  REQUEST_POST,
+  UPDATE_POST,
   CREATE_POST,
   CREATE_COMMENT,
   LIKE_POST,
@@ -12,6 +14,8 @@ import {
 
 import {
   fetchPosts,
+  fetchPost,
+  updatePost,
   createPost,
   createLike,
   destroyLike
@@ -21,6 +25,7 @@ import { createComment } from '../util/comment_api_util';
 
 const PostMiddleware = ({getState, dispatch}) => next => action => {
   const fetchPostsSuccessCallback = (posts) => dispatch(receivePosts(posts));
+  const fetchPostSuccessCallback = (post) => dispatch(receivePost(post));
   const createCommentSuccessCallback = (comment) => dispatch(receiveComment(comment));
   const likeSuccessCallback = (like) => {
     dispatch(receiveLike(like.liked_post_id, like.liker))
@@ -38,11 +43,25 @@ const PostMiddleware = ({getState, dispatch}) => next => action => {
         action.explore
       );
       return next(action);
+    case REQUEST_POST:
+      fetchPost(
+        fetchPostSuccessCallback,
+        error => console.log(error),
+        action.postId
+      );
+      return next(action);
     case CREATE_POST:
       createPost(
         action.post,
         data => console.log(data),
         error => console.log(error)
+      )
+      return next(action);
+    case UPDATE_POST:
+      updatePost(
+        fetchPostSuccessCallback,
+        error => console.log(error),
+        post
       )
       return next(action);
     case UNLIKE_POST:
