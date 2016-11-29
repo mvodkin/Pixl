@@ -6,6 +6,7 @@ import App from "./app";
 import SessionFormContainer from "./session/session_form_container";
 import PostsContainer from "./posts/posts_container";
 import CreatePostFormContainer from "./create_post/create_post_form_container";
+import UpdatePostContainer from "./create_post/update_post_container";
 
 const Root = ({store}) => {
 
@@ -34,6 +35,7 @@ const Root = ({store}) => {
           <Route path="/user/:userId" component={PostsContainer} onEnter={_ensureLoggedIn} />
           <Route path="/new" component={CreatePostFormContainer} onEnter={_ensureLoggedIn} />
           <Route path="/explore" component={PostsContainer} onEnter={_ensureLoggedIn} />
+          <Route path="/edit/:postId" component={UpdatePostContainer} onEnter={_ensureLoggedIn} />
         </Route>
         <Route path="login" component={SessionFormContainer} />
         <Route path="signup" component={SessionFormContainer} />

@@ -37,7 +37,6 @@ class FollowButton extends React.Component {
   }
 
   button() {
-    debugger
     if (this.props.currentUser.id === this.props.profile.id) {
       return (
         <EditProfile props={this.props} />

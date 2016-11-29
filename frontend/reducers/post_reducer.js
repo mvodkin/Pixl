@@ -13,6 +13,8 @@ const PostReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_POSTS:
       return action.posts;
+    case RECEIVE_POST:
+      return [action.post];
 
     case RECEIVE_LIKE:
       newState.forEach(post => {

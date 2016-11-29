@@ -11,8 +11,7 @@ export const fetchPosts = (success, error, userId = null, explore = false) => {
 export const fetchPost = (success, error, postId) => {
   $.ajax({
     method: "GET",
-    url: "api/posts",
-    data: postId,
+    url: `api/posts/${postId}`,
     success,
     error
   })
@@ -21,8 +20,8 @@ export const fetchPost = (success, error, postId) => {
 export const updatePost = (success, error, post) => {
   $.ajax({
     method: "PATCH",
-    url: `api/posts/${post.id}`,
-    data: { post },
+    url: `api/posts/${post.post.id}`,
+    data: post,
     success,
     error
   })

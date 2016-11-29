@@ -32,6 +32,7 @@ class Canvas extends React.Component {
     this.paintBucket = this.paintBucket.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.easelClass = this.easelClass.bind(this);
+    this.fetchEditPost = this.fetchEditPost.bind(this);
 
   }
 
@@ -175,15 +176,49 @@ class Canvas extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const post = {
+    let post = {
       drawing: this.state.pixls,
       description: this.state.description
     };
-    this.props.createPost({post});
+    if (this.props.props.location.pathname === "/new") {
+      this.props.createPost({post});
+    } else {
+      post.id = this.props.props.post[0].id
+      this.props.props.updatePost({post})
+    }
+
     hashHistory.push("/")
   }
 
+  componentDidMount() {
+    if (this.props.props.location.pathname.includes("edit")) {
+      this.fetchEditPost()
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.props.post[0]) {
+      const post = newProps.props.post[0];
+      debugger
+      this.setState({pixls: post.drawing, description: post.description})
+    }
+  }
+
+  fetchEditPost() {
+    const postId = this.props.props.params.postId;
+    this.props.props.requestPost(postId);
+  }
+
+  submitButton() {
+    if (this.props.props.location.pathname === "/new") {
+      return "Share Pixls";
+    } else {
+      return "Update Pixls";
+    }
+  }
+
   render() {
+
     return (
       <section className="easel group">
 
@@ -224,10 +259,11 @@ class Canvas extends React.Component {
               type="text"
               className="new-post-input"
               placeholder="Caption..."
+              value={this.state.description}
               onChange={this.setDescription()}></input>
             <input type="submit"
               className="canvas-button share-pixls"
-              value="Share Pixls"></input>
+              value={this.submitButton()}></input>
           </form>
 
         </div>

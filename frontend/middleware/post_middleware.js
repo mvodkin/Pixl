@@ -7,6 +7,7 @@ import {
   LIKE_POST,
   UNLIKE_POST,
   receivePosts,
+  receivePost,
   receiveComment,
   receiveLike,
   removeLike
@@ -61,7 +62,7 @@ const PostMiddleware = ({getState, dispatch}) => next => action => {
       updatePost(
         fetchPostSuccessCallback,
         error => console.log(error),
-        post
+        action.post
       )
       return next(action);
     case UNLIKE_POST:

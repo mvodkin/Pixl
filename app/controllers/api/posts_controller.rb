@@ -12,18 +12,18 @@ class Api::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params.id)
+    @post = Post.find(params[:id])
     if @post
-      render json: :show
+      render :show
     else
       render json: "Post not found", status: 422
     end
   end
 
   def update
-    @post = Post.find(params.id)
+    @post = Post.find(params[:id])
     if @post.update(post_params)
-      render json: :show
+      render :index
     else
       render json: @post.errors.full_messages, status: 422
     end

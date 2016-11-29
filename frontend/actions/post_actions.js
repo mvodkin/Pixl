@@ -37,6 +37,11 @@ export const receivePosts = (posts) => ({
   posts
 });
 
+export const receivePost = (post) => ({
+  type: RECEIVE_POST,
+  post
+})
+
 export const createComment = (comment) => ({
   type: CREATE_COMMENT,
   comment
