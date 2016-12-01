@@ -31,7 +31,7 @@ const Post = ({props, post}) => {
       if (parseInt(props.params.userId) === props.currentUser.id) {
         return (
           <h3 className="edit-post-button">
-            <Link to={`posts/edit/${post.id}`}>Edit Post</Link>
+            <Link to={`/edit/${post.id}`}>Edit Post</Link>
           </h3>
         );
       }
@@ -65,13 +65,13 @@ const Post = ({props, post}) => {
       <article className="post">
 
         <section className="post-user">
-          <h3>
-            <Link to={`user/${post.user.id}`}>
-              {post.user.username}
-            </Link>
-          </h3>
 
-          {setProfilePic()}
+          <Link to={`user/${post.user.id}`}>
+            {post.user.username}
+          </Link>
+
+
+          <section className="dropdown">{setProfilePic()}</section>
 
         </section>
 
