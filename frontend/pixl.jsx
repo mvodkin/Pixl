@@ -27,6 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
 setInterval(function() {
     let hour = (new Date()).getHours()
     if (hour > 6) {
-      http.get("http://pixl-app.herokuapp.com");
+      http.get("http://www.pixl.website");
     }
 }, 300000);
