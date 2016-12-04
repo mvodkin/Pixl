@@ -13,7 +13,7 @@ class EditProfile extends React.Component {
       username: this.props.props.currentUser.username,
       email: this.props.props.currentUser.email,
       profile_desc: this.props.props.currentUser.profile_desc
-    }
+    };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.update = this.update.bind(this);
@@ -49,10 +49,8 @@ class EditProfile extends React.Component {
       email: this.state.email,
       profile_desc: this.state.profile_desc
     };
-    debugger
     this.props.props.requestUpdateProfile(user);
     this.setState({modalIsOpen: false});
-
   }
 
   update(key) {
