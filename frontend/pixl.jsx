@@ -25,5 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 setInterval(function() {
-    http.get("http://pixl-app.herokuapp.com");
-}, 300000); // every 5 minutes (300000)
+    let hour = (new Date()).getHours()
+    if (hour > 6) {
+      http.get("http://pixl-app.herokuapp.com");
+    }
+}, 300000);
