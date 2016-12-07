@@ -46,7 +46,7 @@ class PostOptions extends React.Component {
         <ul className="edit-profile-form">
           <li className="options-modal-button" onClick={this.closeModal}>Cancel</li>
         </ul>
-      )
+      );
     }
   }
 
@@ -66,7 +66,7 @@ class PostOptions extends React.Component {
 
         </Modal>
       </section>
-    )
+    );
   }
 
 }
