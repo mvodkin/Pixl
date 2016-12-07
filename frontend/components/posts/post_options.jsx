@@ -33,10 +33,7 @@ class PostOptions extends React.Component {
     }
   }
 
-
-
   ownPostButtons() {
-
     if (this.props.post.user.id === this.props.currentUser.id) {
       return (
         <ul className="edit-profile-form">
@@ -44,11 +41,17 @@ class PostOptions extends React.Component {
           <li><button className="options-modal-button" onClick={this.handleSetProfilePic}>Set as profile picture</button></li>
         </ul>
       );
+    } else {
+      return (
+        <ul className="edit-profile-form">
+          <li className="options-modal-button" onClick={this.closeModal}>Cancel</li>
+        </ul>
+      )
     }
   }
 
   render() {
-    debugger
+
     return (
       <section className="options">
 
