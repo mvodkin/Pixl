@@ -47,6 +47,4 @@ class LikeButton extends React.Component {
 
 }
 
-// {this.buttonType()}
-
 export default LikeButton;

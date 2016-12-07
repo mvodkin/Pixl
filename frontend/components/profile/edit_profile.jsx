@@ -69,7 +69,8 @@ class EditProfile extends React.Component {
 
         <Modal className="edit-profile-modal"
           isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeModal}>
+          onRequestClose={this.closeModal}
+          contentLabel="EditProfile">
 
             <section className="edit-profile-form">
 

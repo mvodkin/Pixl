@@ -1,12 +1,16 @@
 import React from "react";
 import Modal from "react-modal";
+import { Link } from "react-router";
 
 class PostOptions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalIsOpen = false
+      modalIsOpen: false
     };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.handleSetProfilePic = this.handleSetProfilePic.bind(this);
   }
 
   openModal() {
@@ -17,56 +21,51 @@ class PostOptions extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
+  handleSetProfilePic() {
+    const updatedCurrentUser = {
+      id: this.props.currentUser.id,
+      profile_pic_id: this.props.post.id
+    }
+    this.closeModal();
+    this.props.requestUpdateProfile(updatedCurrentUser);
+    if (window.location.hash.includes("user")) {
+      window.scrollTo(0, 0);
+    }
+  }
+
+
+
+  ownPostButtons() {
+
+    if (this.props.post.user.id === this.props.currentUser.id) {
+      return (
+        <ul className="edit-profile-form">
+          <li><Link className="options-modal-button" to={`/edit/${this.props.post.id}`}>Edit post</Link></li>
+          <li><button className="options-modal-button" onClick={this.handleSetProfilePic}>Set as profile picture</button></li>
+        </ul>
+      );
+    }
+  }
+
   render() {
+    debugger
     return (
-      <div onClick={this.openModal}>...</div>
+      <section className="options">
 
-        <Modal className="edit-profile-modal"
+        <span className={"options-button"} onClick={this.openModal}>***</span>
+
+        <Modal className="post-options-modal"
           isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeModal}>
+          onRequestClose={this.closeModal}
+          contentLabel="Options">
 
-            <section className="edit-profile-form">
-
-              <h1>Edit Profile</h1>
-              <form onSubmit={this.handleSubmit} className="edit-profile-box">
-
-                <div>
-                  <aside>Username</aside>
-                  <input type="text"
-                  defaultValue={this.state.username}
-                  className="login-input"
-                  id="username-input"
-                  onChange={this.update("username")}/>
-                </div>
-
-                <div>
-                  <aside>Email</aside>
-                  <input type="text"
-                  defaultValue={this.state.email}
-                  className="login-input"
-                  id="email-input"
-                  onChange={this.update("email")}/>
-                </div>
-
-                <div>
-                  <aside>Bio</aside>
-                  <textarea
-                  className="login-input"
-                  id="description-input"
-                  defaultValue={this.state.profile_desc}
-                  onChange={this.update("profile_desc")}></textarea>
-                </div>
-
-                <div className="submit-edit">
-                  <input type="submit"
-                    value="Update profile"/>
-                </div>
-
-              </form>
-            </section>
+          {this.ownPostButtons()}
 
         </Modal>
+      </section>
     )
   }
 
 }
+
+export default PostOptions;

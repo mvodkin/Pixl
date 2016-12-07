@@ -36,7 +36,11 @@ h1.new-post-heading {
   padding: 15px 15px;
 }
 
-.circle-picker > div > div {
+.circle-picker div > div {
+  margin: 0px 10px 14px 0px !important;
+}
+
+.circle-picker span > div {
   margin: 0px 10px 14px 0px !important;
 }
 

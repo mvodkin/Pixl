@@ -1,0 +1,44 @@
+.post-options-modal {
+  text-align: center;
+  background-color: black;
+  position: absolute;
+  font-family: 'VT323', monospace;
+  font-size: 135%;
+  color: white;
+  width: 550px;
+  margin: 0 auto;
+  top: 35%;
+  right: 150px;
+  left: 150px;
+  box-shadow: 5px 5px #FF0078;
+  // border: 1px solid white;
+}
+
+.post-options-modal li {
+  border-bottom: 1px solid white;
+  padding: 10px 0;
+}
+
+.post-options-modal li:last-child {
+  border: none;
+}
+
+.post-options-modal li:hover {
+  color: #FF0078;
+}
+
+section.options {
+  margin: 25px 0;
+}
+
+.options-button {
+  margin-left: 89px;
+  cursor: pointer;
+}
+
+.options-modal-button {
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}

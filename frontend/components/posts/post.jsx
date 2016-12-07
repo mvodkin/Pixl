@@ -4,6 +4,7 @@ import Comments from "./comments";
 import CommentForm from "./comment_form";
 import LikeButton from "./like_button";
 import Canvas from "./canvas";
+import PostOptions from "./post_options";
 import { Link } from "react-router";
 
 
@@ -70,9 +71,6 @@ const Post = ({props, post}) => {
             {post.user.username}
           </Link>
 
-
-          <section className="dropdown">{setProfilePic()}</section>
-
         </section>
 
         <Canvas drawing={post.drawing}/>
@@ -83,6 +81,10 @@ const Post = ({props, post}) => {
         <div className="reactions">
           <LikeButton {...likeButtonProps} />
           <CommentForm props={props} post={post} />
+          <PostOptions
+            post={post}
+            currentUser={props.currentUser}
+            requestUpdateProfile={props.requestUpdateProfile}/>
         </div>
       </article>
     </li>
