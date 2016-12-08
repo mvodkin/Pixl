@@ -55,7 +55,7 @@ class PostOptions extends React.Component {
     return (
       <section className="options">
 
-        <span className={"options-button"} onClick={this.openModal}>***</span>
+        <span className={"options-button"} onClick={this.openModal}>ooo</span>
 
         <Modal className="post-options-modal"
           isOpen={this.state.modalIsOpen}
