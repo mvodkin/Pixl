@@ -45,8 +45,7 @@ class FollowButton extends React.Component {
 
       if (this.state.following) {
         return (
-          <div
-            className="following"
+          <div className="following"
             disabled={this.props.disabled}
             onClick={this.handleClick}>
               Following

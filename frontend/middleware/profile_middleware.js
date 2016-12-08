@@ -30,6 +30,7 @@ const ProfileMiddleware = ({getState, dispatch}) => next => action => {
         fetchSuccessCallback,
         error => console.log(error)
       );
+      return next(action);
     case REQUEST_FOLLOW:
       createFollow(
         action.userId,
