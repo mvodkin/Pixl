@@ -1,6 +1,6 @@
 <h1>Pixl</h1>
 
-<a href="https://pixl.website/#/">See it live</a>
+<a href="http://pixl.website/#/">See it live</a>
 
 Pixl is a web application for creating and sharing pixel art. It is built with Ruby on Rails, React-Redux, PostgreSQL and HTML Canvas.
 
