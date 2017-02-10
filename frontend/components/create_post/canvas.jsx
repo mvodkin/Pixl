@@ -38,7 +38,7 @@ class Canvas extends React.Component {
 
   handleDrag(e) {
     if (e.buttons === 1) {
-      const idx = e.currentTarget.id;
+      const idx = e.target.id;
       let dupPixls = this.state.pixls.slice();
       dupPixls[idx] = this.state.brushColor;
       this.setState({ pixls: dupPixls });
@@ -46,7 +46,7 @@ class Canvas extends React.Component {
   }
 
   handleClick(e) {
-    const idx = e.currentTarget.id;
+    const idx = e.target.id;
     let dupPixls = this.state.pixls.slice();
     if (this.state.paintBucket) {
       this.paintBucket(idx, dupPixls);
@@ -71,9 +71,7 @@ class Canvas extends React.Component {
         className={`pixl ${this.state.pixlClass}`}
         key={i}
         id={i}
-        style={{backgroundColor: `${this.state.pixls[i]}`}}
-        onMouseOver={this.handleDrag}
-        onClick={this.handleClick}></li>)
+        style={{backgroundColor: `${this.state.pixls[i]}`}}></li>)
     }
     return allCells;
   }
@@ -222,7 +220,11 @@ class Canvas extends React.Component {
     return (
       <section className="easel group">
 
-        <ul className={`canvas group new-post ${this.easelClass()} ${this.state.pixlClass}`}>
+        <ul
+          className={`canvas group new-post ${this.easelClass()} ${this.state.pixlClass}`}
+          onClick={this.handleClick}
+          onMouseOver={this.handleDrag}
+          >
           {this.renderPixls()}
         </ul>
 
