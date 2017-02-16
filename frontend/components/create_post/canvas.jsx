@@ -188,6 +188,10 @@ class Canvas extends React.Component {
     hashHistory.push("/")
   }
 
+  parseHashtags(string) {
+    return string.split(" ").filter(word => word[0] === "#")
+  }
+
   componentDidMount() {
     if (this.props.props.location.pathname.includes("edit")) {
       this.fetchEditPost()
