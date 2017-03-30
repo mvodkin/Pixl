@@ -34,10 +34,12 @@ class Canvas extends React.Component {
     this.easelClass = this.easelClass.bind(this);
     this.fetchEditPost = this.fetchEditPost.bind(this);
 
+    this.mouseDown = false;
+
   }
 
   handleDrag(e) {
-    if (e.buttons === 1) {
+    if (this.mouseDown || e.buttons === 1) {
       const idx = e.target.id;
       let dupPixls = this.state.pixls.slice();
       dupPixls[idx] = this.state.brushColor;
@@ -227,6 +229,9 @@ class Canvas extends React.Component {
         <ul
           className={`canvas group new-post ${this.easelClass()} ${this.state.pixlClass}`}
           onClick={this.handleClick}
+          onMouseDown={() => { this.mouseDown = true; }}
+          onMouseUp={() => {this.mouseDown = false; }}
+          onMouseLeave={() => {this.mouseDown = false; }}
           onMouseOver={this.handleDrag}
           >
           {this.renderPixls()}

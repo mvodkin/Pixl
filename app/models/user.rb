@@ -48,11 +48,6 @@ class User < ActiveRecord::Base
     through: :followees,
     source: :posts
 
-  # belongs_to :profile_pic,
-  #   class_name: "Post",
-  #   primary_key: :id,
-  #   foreign_key: :profile_pic_id
-
   def num_followers
     followers.count(:id) || 0
   end
