@@ -43,7 +43,10 @@ class Canvas extends React.Component {
       const idx = e.target.id;
       let dupPixls = this.state.pixls.slice();
       dupPixls[idx] = this.state.brushColor;
-      this.setState({ pixls: dupPixls });
+      // this.setState({ pixls: dupPixls });
+      this.setState((oldState, props) => ({
+        pixls: dupPixls
+      }));
     }
   }
 
