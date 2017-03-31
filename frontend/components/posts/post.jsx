@@ -80,7 +80,7 @@ const Post = ({props, post}) => {
         </section>
         <div className="reactions">
           <LikeButton {...likeButtonProps} />
-          <CommentForm props={props} post={post} />
+          <CommentForm {...props} post={post} />
           <PostOptions
             post={post}
             currentUser={props.currentUser}

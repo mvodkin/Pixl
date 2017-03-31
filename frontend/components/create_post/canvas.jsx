@@ -43,7 +43,6 @@ class Canvas extends React.Component {
       const idx = e.target.id;
       let dupPixls = this.state.pixls.slice();
       dupPixls[idx] = this.state.brushColor;
-      // this.setState({ pixls: dupPixls });
       this.setState((oldState, props) => ({
         pixls: dupPixls
       }));
@@ -72,11 +71,14 @@ class Canvas extends React.Component {
   renderPixls() {
     const allCells = [];
     for (let i = 0; i < 2500; i++) {
-      allCells.push(<li
-        className={`pixl ${this.state.pixlClass}`}
-        key={i}
-        id={i}
-        style={{backgroundColor: `${this.state.pixls[i]}`}}></li>)
+      allCells.push(
+        <li
+          className={`pixl ${this.state.pixlClass}`}
+          key={i}
+          id={i}
+          style={{backgroundColor: `${this.state.pixls[i]}`}}
+        ></li>
+      )
     }
     return allCells;
   }
@@ -183,11 +185,11 @@ class Canvas extends React.Component {
       drawing: this.state.pixls,
       description: this.state.description
     };
-    if (this.props.props.location.pathname === "/new") {
+    if (this.props.location.pathname === "/new") {
       this.props.createPost({post});
     } else {
-      post.id = this.props.props.post[0].id
-      this.props.props.updatePost({post})
+      post.id = this.props.post[0].id
+      this.props.updatePost({post})
     }
 
     hashHistory.push("/")
@@ -198,7 +200,7 @@ class Canvas extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.props.location.pathname.includes("edit")) {
+    if (this.props.location.pathname.includes("edit")) {
       this.fetchEditPost()
     }
   }
@@ -212,12 +214,12 @@ class Canvas extends React.Component {
   }
 
   fetchEditPost() {
-    const postId = this.props.props.params.postId;
-    this.props.props.requestPost(postId);
+    const postId = this.props.params.postId;
+    this.props.requestPost(postId);
   }
 
   submitButton() {
-    if (this.props.props.location.pathname === "/new") {
+    if (this.props.location.pathname === "/new") {
       return "Share Pixls";
     } else {
       return "Update Pixls";

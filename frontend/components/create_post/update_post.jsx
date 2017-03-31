@@ -6,7 +6,7 @@ const UpdatePostForm = (props) => {
   return (
     <main className="new-post-form">
       <h1 className="new-post-heading">EDIT PIXLS</h1>
-      <Canvas createPost={props.createPost} props={props}/>
+      <Canvas createPost={props.createPost} {...props}/>
     </main>
   )
 }
