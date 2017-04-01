@@ -53,7 +53,7 @@ class Canvas extends React.Component {
     const idx = e.target.id;
 
     if (this.state.paintBucket) {
-      this.paintBucket(idx, dupPixls);
+      this.paintBucket(idx);
     } else {
       this.setState((oldState, props) => {
         oldState.pixls[idx] = oldState.brushColor;
@@ -151,10 +151,10 @@ class Canvas extends React.Component {
     }
   }
 
-  paintBucket(idx, pixls) {
+  paintBucket(idx) {
     idx = parseInt(idx);
-
-    this.paint(idx, pixls, this.state.brushColor)
+    const pixls = this.state.pixls.slice(0);
+    this.paint(idx, pixls, this.state.brushColor);
     this.setState({pixls});
   }
 
