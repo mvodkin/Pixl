@@ -41,22 +41,25 @@ class Canvas extends React.Component {
   handleDrag(e) {
     if (this.mouseDown || e.buttons === 1) {
       const idx = e.target.id;
-      let dupPixls = this.state.pixls.slice();
-      dupPixls[idx] = this.state.brushColor;
-      this.setState((oldState, props) => ({
-        pixls: dupPixls
-      }));
+
+      this.setState((oldState, props) => {
+        oldState.pixls[idx] = oldState.brushColor;
+
+        return { pixls: oldState.pixls }
+      });
     }
   }
 
   handleClick(e) {
     const idx = e.target.id;
-    let dupPixls = this.state.pixls.slice();
+    
     if (this.state.paintBucket) {
       this.paintBucket(idx, dupPixls);
     } else {
-      dupPixls[idx] = this.state.brushColor;
-      this.setState({ pixls: dupPixls });
+      this.setState((oldState, props) => {
+        oldState.pixls[idx] = oldState.brushColor;
+        return { pixls: oldState.pixls }
+      });
     }
   }
 
