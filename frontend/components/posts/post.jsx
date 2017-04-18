@@ -10,13 +10,9 @@ import { Link } from "react-router";
 
 const Post = ({props, post}) => {
 
-  const renderLikes = () => {
-    if (post.num_likes > 0) {
-      return (
-        <Likes post={post} />
-      );
-    }
-  };
+  // const renderLikes = () => {
+  //   return <Likes post={post} />
+  // };
 
   const likeButtonProps = {
     currentUser: props.currentUser,
@@ -75,7 +71,7 @@ const Post = ({props, post}) => {
 
         <Canvas drawing={post.drawing}/>
         <section className="image-info">
-          {renderLikes()}
+          <Likes post={post}/>
           <Comments post={post} />
         </section>
         <div className="reactions">
