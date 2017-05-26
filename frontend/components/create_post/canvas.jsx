@@ -208,8 +208,8 @@ class Canvas extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.props.post[0]) {
-      const post = newProps.props.post[0];
+    if (newProps.post[0]) {
+      const post = newProps.post[0];
       debugger
       this.setState({pixls: post.drawing, description: post.description})
     }
