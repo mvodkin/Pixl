@@ -10,10 +10,6 @@ import { Link } from "react-router";
 
 const Post = ({props, post}) => {
 
-  // const renderLikes = () => {
-  //   return <Likes post={post} />
-  // };
-
   const likeButtonProps = {
     currentUser: props.currentUser,
     likePost: props.likePost,

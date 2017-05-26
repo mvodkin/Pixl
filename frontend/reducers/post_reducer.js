@@ -3,6 +3,7 @@ import {
   RECEIVE_POSTS,
   RECEIVE_COMMENT,
   RECEIVE_LIKE,
+  RECEIVE_NEW_POST,
   REMOVE_LIKE,
   RECEIVE_POST,
  } from "../actions/post_actions";
@@ -21,7 +22,7 @@ const PostReducer = (state = [], action) => {
         if (post.id === action.post_id) {
           post.likers.push(action.currentUser);
           post.num_likes++;
-        };
+        }
       });
       return newState;
 
@@ -32,7 +33,7 @@ const PostReducer = (state = [], action) => {
           post.likers.splice(currentUserIdx, 1);
           post.num_likes--;
         }
-      })
+      });
       return newState;
 
     case RECEIVE_COMMENT:
@@ -43,8 +44,8 @@ const PostReducer = (state = [], action) => {
       });
       return newState;
 
-    case RECEIVE_POST:
-      return action.post
+    case RECEIVE_NEW_POST:
+      return action.post;
     default:
       return state;
   }

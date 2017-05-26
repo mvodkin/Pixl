@@ -10,6 +10,7 @@ export const LIKE_POST = "LIKE_POST";
 export const UNLIKE_POST = "UNLIKE_POST";
 export const RECEIVE_LIKE = "RECEIVE_LIKE";
 export const REMOVE_LIKE = "REMOVE_LIKE";
+export const RECEIVE_NEW_POST = "RECEIVE_NEW_POST";
 
 export const createPost = (post) => ({
   type: CREATE_POST,
@@ -39,6 +40,11 @@ export const receivePosts = (posts) => ({
 
 export const receivePost = (post) => ({
   type: RECEIVE_POST,
+  post
+})
+
+export const receiveNewPost = (post) => ({
+  type: RECEIVE_NEW_POST,
   post
 })
 
