@@ -193,8 +193,6 @@ class Canvas extends React.Component {
       post.id = this.props.post[0].id
       this.props.updatePost({post})
     }
-
-    // hashHistory.push("/")
   }
 
   parseHashtags(string) {
