@@ -194,7 +194,7 @@ class Canvas extends React.Component {
       this.props.updatePost({post})
     }
 
-    hashHistory.push("/")
+    // hashHistory.push("/")
   }
 
   parseHashtags(string) {
@@ -210,7 +210,6 @@ class Canvas extends React.Component {
   componentWillReceiveProps(newProps) {
     if (newProps.post[0]) {
       const post = newProps.post[0];
-      debugger
       this.setState({pixls: post.drawing, description: post.description})
     }
   }

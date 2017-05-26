@@ -16,7 +16,7 @@ export default class Posts extends React.Component {
     if (this.props.location.pathname === "/") {
       this.props.requestPosts();
     } else if (this.props.location.pathname === "/explore") {
-      this.props.requestPosts(null, true)
+      this.props.requestPosts(null, true);
     } else if (this.props.location.pathname.includes("/user")) {
       const userId = this.props.params.userId;
       this.props.requestPosts(userId);
@@ -81,9 +81,9 @@ export default class Posts extends React.Component {
         {this.renderExloreHeading()}
         {this.renderProfileInfo()}
 
-          <div className="posts">
-            <ul>{this.allPosts()}</ul>
-          </div>
+        <div className="posts">
+          <ul>{this.allPosts()}</ul>
+        </div>
 
       </main>
     );

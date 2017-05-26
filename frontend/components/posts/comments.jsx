@@ -10,7 +10,7 @@ const Comments = ({post}) => {
   );
 
 
-  let allComments = post.comments.map((comment, idx) => (
+  const allComments = post.comments.map((comment, idx) => (
     renderComment(comment, idx)
   ))
 
